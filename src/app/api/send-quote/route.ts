@@ -62,6 +62,13 @@ export async function POST(request: Request) {
       );
     }
 
+    // --- Cleanup expired rate limit entries ---
+    for (const [ip, ts] of rateLimit.entries()) {
+      const valid = ts.filter((t: number) => now - t < WINDOW_MS);
+      if (valid.length === 0) rateLimit.delete(ip);
+      else rateLimit.set(ip, valid);
+    }
+
     // --- API key check ---
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey || apiKey === 're_placeholder_key') {

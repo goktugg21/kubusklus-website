@@ -94,12 +94,20 @@ export default async function LocaleLayout({ children, params }: Props) {
                 latitude: 52.3456,
                 longitude: 4.8147,
               },
-              openingHoursSpecification: {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-                opens: '00:00',
-                closes: '23:59',
-              },
+              openingHoursSpecification: [
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                  opens: '07:00',
+                  closes: '18:00',
+                },
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: 'Saturday',
+                  opens: '08:00',
+                  closes: '14:00',
+                },
+              ],
               areaServed: [
                 { '@type': 'City', name: 'Amsterdam' },
                 { '@type': 'Place', name: 'Randstad' },
