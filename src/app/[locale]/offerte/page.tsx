@@ -11,26 +11,32 @@ const serviceOptions = [
   'painting', 'tiles', 'parquet', 'partitions', 'other',
 ] as const;
 
+function groupRtl(s: string): string {
+  const groups: string[] = [];
+  let rest = s;
+  while (rest.length > 2) {
+    groups.unshift(rest.slice(-2));
+    rest = rest.slice(0, -2);
+  }
+  if (rest) groups.unshift(rest);
+  return groups.join(' ');
+}
+
 function formatPhone(value: string): string {
   const hasPlus = value.startsWith('+');
-  const digits = value.replace(/[^\d]/g, '');
+  const digits = value.replace(/\D/g, '');
+
+  if (!digits) return hasPlus ? '+' : '';
 
   if (hasPlus) {
-    const parts = [];
-    if (digits.length >= 2) parts.push('+' + digits.slice(0, 2));
-    else return '+' + digits;
-    const rest = digits.slice(2);
-    for (let i = 0; i < rest.length; i += 2) {
-      parts.push(rest.slice(i, i + 2));
-    }
-    return parts.join(' ');
-  } else {
-    const parts = [];
-    for (let i = 0; i < digits.length; i += 2) {
-      parts.push(digits.slice(i, i + 2));
-    }
-    return parts.join(' ');
+    if (digits.length <= 2) return '+' + digits;
+    const cc = digits.slice(0, 2);
+    const national = digits.slice(2);
+    if (!national) return '+' + cc;
+    return '+' + cc + ' ' + groupRtl(national);
   }
+
+  return groupRtl(digits);
 }
 
 export default function OffertePage() {
@@ -50,7 +56,7 @@ export default function OffertePage() {
     }
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     if (status === 'sending') return;
 
@@ -99,7 +105,7 @@ export default function OffertePage() {
       <>
         <section className="bg-[#0F1115] py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-[family-name:var(--font-heading)]">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-heading">
               {t('successTitle')}
             </h1>
           </div>
@@ -111,7 +117,7 @@ export default function OffertePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h2 className="mt-6 text-2xl font-bold text-gray-900 font-[family-name:var(--font-heading)]">
+            <h2 className="mt-6 text-2xl font-bold text-gray-900 font-heading">
               {t('successHeading')}
             </h2>
             <p className="mt-3 text-gray-600">{t('successMessage')}</p>
@@ -139,7 +145,7 @@ export default function OffertePage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-red-600">
             {t('eyebrow')}
           </p>
-          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-[family-name:var(--font-heading)]">
+          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-heading">
             {t('title')}
           </h1>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
@@ -153,7 +159,7 @@ export default function OffertePage() {
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <form ref={formRef} onSubmit={handleSubmit} onChange={clearError} className="space-y-6 rounded-2xl bg-white p-8 shadow-sm">
             {/* Honeypot */}
-            <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+            <div className="absolute -left-2499.75 h-0 w-0 overflow-hidden" aria-hidden="true">
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
             </div>
 
@@ -271,9 +277,9 @@ export default function OffertePage() {
               />
               <label htmlFor="privacy" className="text-sm text-gray-600">
                 {t('privacyLabel')}{' '}
-                <a href="/privacy" className="text-red-600 hover:text-red-700 underline">
+                <Link href="/privacy" className="text-red-600 hover:text-red-700 underline">
                   {t('privacyLink')}
-                </a>{' '}
+                </Link>{' '}
                 <span className="text-red-600">*</span>
               </label>
             </div>
