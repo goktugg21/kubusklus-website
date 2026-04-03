@@ -2,22 +2,30 @@ import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { Resend } from 'resend';
 
-// Rate limiting: IP -> timestamp
-const rateLimit = new Map<string, number>();
-const RATE_LIMIT_MS = 30_000;
+// Rate limiting: IP -> array of timestamps (max 3 per hour)
+const rateLimit = new Map<string, number[]>();
+const MAX_REQUESTS = 5;
+const WINDOW_MS = 60 * 60 * 1000; // 60 minutes
 
-const ALLOWED_SERVICES = ['stucco', 'tiles', 'painting', 'sustainability', 'other'];
+const ALLOWED_SERVICES = [
+  'facades', 'roughcast', 'walls', 'decorative', 'sanding',
+  'painting', 'tiles', 'parquet', 'partitions', 'other',
+];
 
 const SERVICE_LABELS: Record<string, string> = {
-  stucco: 'Stukadoorswerk',
-  tiles: 'Tegelwerk',
+  facades: 'Buitengevels',
+  roughcast: 'Raapwerk',
+  walls: 'Wanden en Plafond',
+  decorative: 'Sier- en Pleisterwerk',
+  sanding: 'Schuurwerk',
   painting: 'Schilderwerk',
-  sustainability: 'Verduurzaming',
+  tiles: 'Tegels Plaatsen',
+  parquet: 'Parket Neerleggen',
+  partitions: 'Tussenwanden Plaatsen',
   other: 'Anders',
 };
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_REGEX = /^[\d\s+\-()]+$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 function stripHtml(str: string): string {
   return str.replace(/<[^>]*>/g, '');
@@ -29,16 +37,18 @@ function sanitize(str: string, maxLen: number): string {
 
 export async function POST(request: Request) {
   try {
-    // --- Rate limiting ---
+    // --- Rate limiting: 3 per hour per IP ---
     const hdrs = await headers();
     const forwarded = hdrs.get('x-forwarded-for');
     const clientIp = forwarded?.split(',')[0]?.trim() || hdrs.get('x-real-ip') || 'unknown';
-    const lastSubmit = rateLimit.get(clientIp);
     const now = Date.now();
 
-    if (lastSubmit && now - lastSubmit < RATE_LIMIT_MS) {
+    const timestamps = rateLimit.get(clientIp) || [];
+    const recent = timestamps.filter((t) => now - t < WINDOW_MS);
+
+    if (recent.length >= MAX_REQUESTS) {
       return NextResponse.json(
-        { error: 'Too many requests. Please wait 30 seconds.' },
+        { error: 'U heeft te veel aanvragen verstuurd. Probeer het over een uur opnieuw.' },
         { status: 429 },
       );
     }
@@ -47,19 +57,19 @@ export async function POST(request: Request) {
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey || apiKey === 're_placeholder_key') {
       return NextResponse.json(
-        { error: 'Email service not configured yet. Please contact us via phone or WhatsApp.' },
+        { error: 'Email service not configured. Please contact us via phone or WhatsApp.' },
         { status: 503 },
       );
     }
 
     const body = await request.json();
 
-    // --- Honeypot: bots fill the hidden "website" field ---
+    // --- Honeypot ---
     if (body.website) {
       return NextResponse.json({ success: true });
     }
 
-    // --- Sanitize inputs ---
+    // --- Sanitize ---
     const name = sanitize(body.name || '', 100);
     const email = sanitize(body.email || '', 254);
     const phone = sanitize(body.phone || '', 30);
@@ -67,34 +77,48 @@ export async function POST(request: Request) {
     const description = sanitize(body.description || '', 2000);
     const startDate = body.startDate ? sanitize(String(body.startDate), 20) : undefined;
 
-    // --- Validate required fields ---
-    if (!name || !email || !phone || !service || !description) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 },
-      );
+    // --- Validate name ---
+    if (name.length < 2) {
+      return NextResponse.json({ error: 'Name must be at least 2 characters' }, { status: 400 });
     }
 
-    // --- Email format + injection prevention ---
+    // --- Validate email ---
     if (!EMAIL_REGEX.test(email)) {
-      return NextResponse.json({ error: 'Invalid email format' }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
     }
     if (/[\n\r]|%0[aAdD]/.test(email)) {
-      return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
     }
 
-    // --- Phone format ---
-    if (!PHONE_REGEX.test(phone)) {
-      return NextResponse.json({ error: 'Invalid phone number' }, { status: 400 });
+    // --- Validate phone: 8-15 digits ---
+    const digitsOnly = phone.replace(/\D/g, '');
+    if (digitsOnly.length < 8 || digitsOnly.length > 15) {
+      return NextResponse.json({ error: 'Phone number must have 8-15 digits' }, { status: 400 });
     }
 
-    // --- Service must be allowed ---
+    // --- Validate service ---
     if (!ALLOWED_SERVICES.includes(service)) {
-      return NextResponse.json({ error: 'Invalid service type' }, { status: 400 });
+      return NextResponse.json({ error: 'Please select a service' }, { status: 400 });
+    }
+
+    // --- Validate description ---
+    if (description.length < 5) {
+      return NextResponse.json({ error: 'Description must be at least 5 characters' }, { status: 400 });
+    }
+
+    // --- Validate date (if provided, must be today or future) ---
+    if (startDate) {
+      const dateVal = new Date(startDate);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (isNaN(dateVal.getTime()) || dateVal < today) {
+        return NextResponse.json({ error: 'Please select a future date' }, { status: 400 });
+      }
     }
 
     // --- All checks passed, record rate limit ---
-    rateLimit.set(clientIp, now);
+    recent.push(now);
+    rateLimit.set(clientIp, recent);
 
     const resend = new Resend(apiKey);
     const serviceLabel = SERVICE_LABELS[service] ?? service;

@@ -2,19 +2,34 @@
 
 import { useState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
-type FormStatus = 'idle' | 'sending' | 'success' | 'error' | 'cooldown';
+type FormStatus = 'idle' | 'sending' | 'success' | 'error';
+
+const serviceOptions = [
+  'facades', 'roughcast', 'walls', 'decorative', 'sanding',
+  'painting', 'tiles', 'parquet', 'partitions', 'other',
+] as const;
 
 export default function OffertePage() {
   const t = useTranslations('OffertePage');
   const [status, setStatus] = useState<FormStatus>('idle');
-  const [cooldown, setCooldown] = useState(0);
+  const [errorMsg, setErrorMsg] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
+
+  function clearError() {
+    if (status === 'error') {
+      setStatus('idle');
+      setErrorMsg('');
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (status === 'sending' || status === 'cooldown') return;
+    if (status === 'sending') return;
+
     setStatus('sending');
+    setErrorMsg('');
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -38,23 +53,15 @@ export default function OffertePage() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        if (res.status === 429) {
-          setStatus('cooldown');
-          setCooldown(30);
-          const interval = setInterval(() => {
-            setCooldown((prev) => {
-              if (prev <= 1) { clearInterval(interval); setStatus('idle'); return 0; }
-              return prev - 1;
-            });
-          }, 1000);
-          return;
-        }
-        throw new Error(data.error || 'Request failed');
+        setErrorMsg(data.error || t('errorGeneric'));
+        setStatus('error');
+        return;
       }
 
       setStatus('success');
       formRef.current?.reset();
     } catch {
+      setErrorMsg(t('errorGeneric'));
       setStatus('error');
     }
   }
@@ -80,13 +87,21 @@ export default function OffertePage() {
               {t('successHeading')}
             </h2>
             <p className="mt-3 text-gray-600">{t('successMessage')}</p>
+            <div className="mt-8">
+              <Link
+                href="/"
+                className="inline-block rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 transition-colors"
+              >
+                {t('backHome')}
+              </Link>
+            </div>
           </div>
         </section>
       </>
     );
   }
 
-  const serviceOptions = ['stucco', 'tiles', 'painting', 'sustainability', 'other'] as const;
+  const isSending = status === 'sending';
 
   return (
     <>
@@ -108,23 +123,11 @@ export default function OffertePage() {
       {/* Form */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 rounded-2xl bg-white p-8 shadow-sm">
-            {/* Honeypot — hidden from humans, bots fill it */}
+          <form ref={formRef} onSubmit={handleSubmit} onChange={clearError} className="space-y-6 rounded-2xl bg-white p-8 shadow-sm">
+            {/* Honeypot */}
             <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
             </div>
-
-            {/* Error banner */}
-            {status === 'error' && (
-              <div className="rounded-lg bg-red-50 border border-red-200 p-4">
-                <div className="flex items-center gap-x-3">
-                  <svg className="h-5 w-5 shrink-0 text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clipRule="evenodd" />
-                  </svg>
-                  <p className="text-sm font-medium text-red-800">{t('errorMessage')}</p>
-                </div>
-              </div>
-            )}
 
             {/* Name */}
             <div>
@@ -136,7 +139,7 @@ export default function OffertePage() {
                 name="name"
                 type="text"
                 required
-                disabled={status === 'sending'}
+                disabled={isSending}
                 className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder={t('namePlaceholder')}
               />
@@ -152,7 +155,7 @@ export default function OffertePage() {
                 name="email"
                 type="email"
                 required
-                disabled={status === 'sending'}
+                disabled={isSending}
                 className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder={t('emailPlaceholder')}
               />
@@ -168,13 +171,13 @@ export default function OffertePage() {
                 name="phone"
                 type="tel"
                 required
-                disabled={status === 'sending'}
+                disabled={isSending}
                 className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder={t('phonePlaceholder')}
               />
             </div>
 
-            {/* Service type */}
+            {/* Service type — all 9 + other */}
             <div>
               <label htmlFor="service" className="block text-sm font-medium text-gray-900">
                 {t('service')} <span className="text-red-600">*</span>
@@ -183,7 +186,7 @@ export default function OffertePage() {
                 id="service"
                 name="service"
                 required
-                disabled={status === 'sending'}
+                disabled={isSending}
                 className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
               >
                 <option value="">{t('servicePlaceholder')}</option>
@@ -205,13 +208,14 @@ export default function OffertePage() {
                 name="description"
                 required
                 rows={4}
-                disabled={status === 'sending'}
+                disabled={isSending}
                 className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors resize-y disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder={t('descriptionPlaceholder')}
               />
+              <p className="mt-1.5 text-sm text-gray-400 italic">{t('descriptionTip')}</p>
             </div>
 
-            {/* Preferred start date (optional) */}
+            {/* Preferred start date */}
             <div>
               <label htmlFor="startDate" className="block text-sm font-medium text-gray-900">
                 {t('startDate')}
@@ -220,7 +224,7 @@ export default function OffertePage() {
                 id="startDate"
                 name="startDate"
                 type="date"
-                disabled={status === 'sending'}
+                disabled={isSending}
                 className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
               />
             </div>
@@ -232,7 +236,7 @@ export default function OffertePage() {
                 name="privacy"
                 type="checkbox"
                 required
-                disabled={status === 'sending'}
+                disabled={isSending}
                 className="mt-1 h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-600"
               />
               <label htmlFor="privacy" className="text-sm text-gray-600">
@@ -244,23 +248,31 @@ export default function OffertePage() {
               </label>
             </div>
 
+            {/* Error banner — shows API error message, disappears on form change */}
+            {status === 'error' && errorMsg && (
+              <div className="rounded-lg bg-red-50 border border-red-200 p-4">
+                <div className="flex items-center gap-x-3">
+                  <svg className="h-5 w-5 shrink-0 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clipRule="evenodd" />
+                  </svg>
+                  <p className="text-sm font-medium text-red-800">{errorMsg}</p>
+                </div>
+              </div>
+            )}
+
             {/* Submit */}
             <button
               type="submit"
-              disabled={status === 'sending' || status === 'cooldown'}
+              disabled={isSending}
               className="w-full rounded-lg bg-red-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-red-700 transition-colors disabled:bg-red-400 disabled:cursor-not-allowed flex items-center justify-center gap-x-2"
             >
-              {status === 'sending' && (
+              {isSending && (
                 <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                 </svg>
               )}
-              {status === 'sending'
-                ? t('sending')
-                : status === 'cooldown'
-                  ? `${t('cooldown')} (${cooldown}s)`
-                  : t('submit')}
+              {isSending ? t('sending') : t('submit')}
             </button>
           </form>
         </div>
