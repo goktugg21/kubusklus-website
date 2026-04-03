@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
@@ -11,10 +11,34 @@ const serviceOptions = [
   'painting', 'tiles', 'parquet', 'partitions', 'other',
 ] as const;
 
+function formatPhone(value: string): string {
+  const hasPlus = value.startsWith('+');
+  const digits = value.replace(/[^\d]/g, '');
+
+  if (hasPlus) {
+    const parts = [];
+    if (digits.length >= 2) parts.push('+' + digits.slice(0, 2));
+    else return '+' + digits;
+    const rest = digits.slice(2);
+    for (let i = 0; i < rest.length; i += 2) {
+      parts.push(rest.slice(i, i + 2));
+    }
+    return parts.join(' ');
+  } else {
+    const parts = [];
+    for (let i = 0; i < digits.length; i += 2) {
+      parts.push(digits.slice(i, i + 2));
+    }
+    return parts.join(' ');
+  }
+}
+
 export default function OffertePage() {
   const t = useTranslations('OffertePage');
+  const locale = useLocale();
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [phone, setPhone] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
 
   function clearError() {
@@ -42,6 +66,7 @@ export default function OffertePage() {
       description: formData.get('description') as string,
       startDate: (formData.get('startDate') as string) || undefined,
       website: formData.get('website') as string,
+      locale,
     };
 
     try {
