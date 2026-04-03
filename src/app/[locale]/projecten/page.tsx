@@ -109,7 +109,7 @@ export default function ProjectenPage() {
           {/* Image */}
           <img
             src={lightbox}
-            alt=""
+            alt="Project foto"
             className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain"
             onClick={(e) => e.stopPropagation()}
           />
