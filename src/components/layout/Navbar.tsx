@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -21,12 +22,10 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-auto py-2 md:py-3 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-extrabold tracking-tight font-[family-name:var(--font-heading)]">
-              Kubus<span className="text-red-600">klus</span>
-            </span>
+            <Image src="/images/logo-navbar2.png" alt="Kubusklus" width={215} height={90} style={{ objectFit: 'contain' }} priority />
           </Link>
 
           {/* Desktop nav links */}
