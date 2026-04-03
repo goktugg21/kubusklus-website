@@ -38,9 +38,10 @@ export default function PortfolioPreview() {
         {/* Project cards */}
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <div
+            <Link
               key={project.categoryKey}
-              className="group relative overflow-hidden rounded-2xl aspect-[4/3]"
+              href="/projecten"
+              className="group relative overflow-hidden rounded-2xl aspect-[4/3] block"
             >
               {/* Image */}
               <div
@@ -59,7 +60,7 @@ export default function PortfolioPreview() {
                   {t(`projects.${project.categoryKey}`)}
                 </h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

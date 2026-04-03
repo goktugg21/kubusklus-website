@@ -48,7 +48,7 @@ export async function POST(request: Request) {
 
     if (recent.length >= MAX_REQUESTS) {
       return NextResponse.json(
-        { error: 'U heeft te veel aanvragen verstuurd. Probeer het over een uur opnieuw.' },
+        { error: 'Too many requests. Please try again later.' },
         { status: 429 },
       );
     }
@@ -69,6 +69,17 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true });
     }
 
+    // --- Locale-aware error messages ---
+    const nl = body.locale === 'nl';
+    const msg = {
+      nameTooShort: nl ? 'Naam moet minimaal 2 tekens bevatten' : 'Name must be at least 2 characters',
+      invalidEmail: nl ? 'Ongeldig e-mailadres' : 'Invalid email address',
+      phoneBadLength: nl ? 'Telefoonnummer moet 8-15 cijfers bevatten' : 'Phone number must have 8-15 digits',
+      selectService: nl ? 'Selecteer een dienst' : 'Please select a service',
+      descTooShort: nl ? 'Beschrijving moet minimaal 5 tekens bevatten' : 'Description must be at least 5 characters',
+      futureDate: nl ? 'Selecteer een datum in de toekomst' : 'Please select a future date',
+    };
+
     // --- Sanitize ---
     const name = sanitize(body.name || '', 100);
     const email = sanitize(body.email || '', 254);
@@ -79,31 +90,28 @@ export async function POST(request: Request) {
 
     // --- Validate name ---
     if (name.length < 2) {
-      return NextResponse.json({ error: 'Name must be at least 2 characters' }, { status: 400 });
+      return NextResponse.json({ error: msg.nameTooShort }, { status: 400 });
     }
 
     // --- Validate email ---
-    if (!EMAIL_REGEX.test(email)) {
-      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
-    }
-    if (/[\n\r]|%0[aAdD]/.test(email)) {
-      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
+    if (!EMAIL_REGEX.test(email) || /[\n\r]|%0[aAdD]/.test(email)) {
+      return NextResponse.json({ error: msg.invalidEmail }, { status: 400 });
     }
 
     // --- Validate phone: 8-15 digits ---
     const digitsOnly = phone.replace(/\D/g, '');
     if (digitsOnly.length < 8 || digitsOnly.length > 15) {
-      return NextResponse.json({ error: 'Phone number must have 8-15 digits' }, { status: 400 });
+      return NextResponse.json({ error: msg.phoneBadLength }, { status: 400 });
     }
 
     // --- Validate service ---
     if (!ALLOWED_SERVICES.includes(service)) {
-      return NextResponse.json({ error: 'Please select a service' }, { status: 400 });
+      return NextResponse.json({ error: msg.selectService }, { status: 400 });
     }
 
     // --- Validate description ---
     if (description.length < 5) {
-      return NextResponse.json({ error: 'Description must be at least 5 characters' }, { status: 400 });
+      return NextResponse.json({ error: msg.descTooShort }, { status: 400 });
     }
 
     // --- Validate date (if provided, must be today or future) ---
@@ -112,7 +120,7 @@ export async function POST(request: Request) {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       if (isNaN(dateVal.getTime()) || dateVal < today) {
-        return NextResponse.json({ error: 'Please select a future date' }, { status: 400 });
+        return NextResponse.json({ error: msg.futureDate }, { status: 400 });
       }
     }
 
