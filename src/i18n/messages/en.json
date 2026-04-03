@@ -1,0 +1,373 @@
+{
+  "CookieBanner": {
+    "message": "This website only uses functional cookies for proper operation.",
+    "link": "Privacy Policy",
+    "accept": "Accept"
+  },
+  "EmergencyBar": {
+    "label": "24/7 Emergency Service",
+    "phone": "06 212 65 372"
+  },
+  "Navbar": {
+    "services": "Services",
+    "portfolio": "Projects",
+    "howWeWork": "How We Work",
+    "about": "About Us",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "cta": "Free Quote"
+  },
+  "Hero": {
+    "eyebrow": "AMSTERDAM & RANDSTAD",
+    "title": "Expert Plastering, Tiling & Painting",
+    "description": "We don't claim, we prove it. Your reliable subcontractor for businesses and homeowners in Amsterdam. Since 2006.",
+    "primaryCTA": "Request a Free Quote",
+    "secondaryCTA": "Our Projects",
+    "stat1": "Years Experience",
+    "stat2": "Projects Completed",
+    "stat3": "Client Satisfaction",
+    "stat4": "Emergency Service"
+  },
+  "TrustBar": {
+    "warranty": "3–5 Year Warranty",
+    "freeQuote": "Free Quote",
+    "quality": "Sigma A-Quality",
+    "emergency": "24/7 Emergency Service"
+  },
+  "Services": {
+    "eyebrow": "Our Services",
+    "title": "What We Do",
+    "subtitle": "From plastering to painting — we deliver craftsmanship for every project.",
+    "learnMore": "Learn more",
+    "viewAll": "View all services",
+    "facades": {
+      "title": "Exterior Facades",
+      "description": "Professional facade finishing and renovation. From exterior plastering to facade cleaning and repair."
+    },
+    "decorative": {
+      "title": "Decorative Plaster",
+      "description": "Decorative plaster, smooth finish and textured plaster. Refined finishes for every interior."
+    },
+    "painting": {
+      "title": "Painting",
+      "description": "Professional interior and exterior painting. We work with Sigma paint for a long-lasting beautiful finish."
+    },
+    "tiles": {
+      "title": "Tiling",
+      "description": "Expert tiling for bathrooms, kitchens and floors. All tile types, from ceramic to natural stone."
+    }
+  },
+  "Portfolio": {
+    "eyebrow": "Our Work",
+    "title": "Recent Projects",
+    "subtitle": "View our most recent projects and discover the quality of our craftsmanship.",
+    "viewAll": "View All Projects",
+    "categories": {
+      "stucco": "Plastering",
+      "tiles": "Tiling",
+      "painting": "Painting"
+    },
+    "projects": {
+      "stucco": "Apartment Renovation Amsterdam-Zuid",
+      "tiles": "Bathroom Remodel Jordaan",
+      "painting": "Office Building Painting Zuidas"
+    }
+  },
+  "HowWeWork": {
+    "eyebrow": "Our Process",
+    "title": "How We Work",
+    "subtitle": "From first contact to delivery — a clear and transparent process.",
+    "step1": {
+      "title": "Free Quote",
+      "description": "Get in touch for a no-obligation quote. We discuss your needs and inspect the location."
+    },
+    "step2": {
+      "title": "Expert Work",
+      "description": "Our team gets to work with professional tools and A-quality materials. You'll be kept informed throughout."
+    },
+    "step3": {
+      "title": "Delivery",
+      "description": "After a thorough inspection we deliver the project. You only pay the final amount upon approval."
+    }
+  },
+  "CTA": {
+    "title": "Ready for your project?",
+    "subtitle": "Request a free, no-obligation quote today. We'll get back to you within 24 hours.",
+    "button": "Request a Quote"
+  },
+  "FAQ": {
+    "eyebrow": "Frequently Asked Questions",
+    "title": "Everything You Want to Know",
+    "q1": {
+      "question": "Is the quote free?",
+      "answer": "Yes, our quotes are completely free and without obligation. We're happy to visit you to assess the situation and agree on a fair price."
+    },
+    "q2": {
+      "question": "How quickly can you start?",
+      "answer": "Depending on our schedule, we can often start within 1-2 weeks. For urgent jobs, we're available 24/7."
+    },
+    "q3": {
+      "question": "How does payment work?",
+      "answer": "We work with a clear payment schedule: 30% upfront, a mid-project payment, and the final amount upon delivery."
+    },
+    "q4": {
+      "question": "Do you offer a warranty?",
+      "answer": "Yes, we offer a 3 to 5 year warranty on our workmanship. Quality is our top priority."
+    },
+    "q5": {
+      "question": "Do you clean up construction waste?",
+      "answer": "This depends on the project. We discuss this during the quote so you know exactly what to expect."
+    },
+    "q6": {
+      "question": "Do you work on weekends or evenings?",
+      "answer": "Yes, our 24/7 emergency service is always available. For regular projects, we plan the best time together."
+    },
+    "q7": {
+      "question": "What materials do you use?",
+      "answer": "We work exclusively with A-quality materials, including Sigma paint. This ensures a durable, long-lasting result."
+    },
+    "q8": {
+      "question": "Do you handle permits?",
+      "answer": "No, the client is responsible for applying for permits and any homeowners association (VvE) approval. We're happy to advise you on this."
+    }
+  },
+  "Footer": {
+    "description": "Kubus Plastering & Maintenance Company. We don't claim, we prove it. Since 2006 in Amsterdam.",
+    "servicesTitle": "Services",
+    "services": {
+      "facades": "Exterior Facades",
+      "roughcast": "Roughcast Plastering",
+      "walls": "Walls and Ceilings",
+      "decorative": "Decorative Plaster",
+      "sanding": "Sanding Work",
+      "painting": "Painting",
+      "tiles": "Tiling",
+      "parquet": "Parquet Flooring",
+      "partitions": "Partition Walls"
+    },
+    "quickLinksTitle": "Quick Links",
+    "about": "About Us",
+    "portfolio": "Projects",
+    "faq": "FAQ",
+    "privacy": "Privacy Policy",
+    "contactTitle": "Contact",
+    "rights": "All rights reserved."
+  },
+  "WerkwijzePage": {
+    "eyebrow": "Our Process",
+    "title": "How We Work",
+    "subtitle": "A transparent and clear process from start to finish.",
+    "ctaTitle": "Ready to get started?",
+    "ctaSubtitle": "Request a free quote today and discover how we can help you.",
+    "ctaButton": "Request a Quote"
+  },
+  "DienstenPage": {
+    "eyebrow": "Our Services",
+    "title": "What We Do For You",
+    "subtitle": "Professional craftsmanship for every project — from plastering to parquet flooring.",
+    "cta": "Request a Quote",
+    "facades": {
+      "title": "Exterior Facades",
+      "description": "Professional facade finishing and renovation. We handle exterior plastering, facade cleaning and repair for a durable, clean result. From new builds to historic properties.",
+      "features": {
+        "0": "Exterior plastering and facade renovation",
+        "1": "Facade cleaning and impregnation",
+        "2": "Joint and concrete repair"
+      }
+    },
+    "roughcast": {
+      "title": "Roughcast Plastering",
+      "description": "Expert roughcast work as a base layer for further finishing. We ensure a solid, flat foundation on which any top layer adheres perfectly.",
+      "features": {
+        "0": "Cement-based render coats",
+        "1": "Interior and exterior roughcast",
+        "2": "Surface preparation"
+      }
+    },
+    "walls": {
+      "title": "Walls and Ceilings",
+      "description": "Complete wall and ceiling finishing for new builds and renovations. From plastering to textured finishes — always a clean, professional result.",
+      "features": {
+        "0": "Smooth wall plastering",
+        "1": "Ceiling finishing and repair",
+        "2": "Plaster blocks and stud walls"
+      }
+    },
+    "decorative": {
+      "title": "Decorative Plaster",
+      "description": "Decorative plastering for a unique look. From classic ornamental work to modern texture techniques.",
+      "features": {
+        "0": "Decorative and textured plaster",
+        "1": "Structured plaster finishes",
+        "2": "Decorative wall coatings"
+      }
+    },
+    "sanding": {
+      "title": "Sanding Work",
+      "description": "Professional sanding of walls, ceilings and floors. Perfect preparation for painting or a new finish coat.",
+      "features": {
+        "0": "Wall and ceiling sanding",
+        "1": "Old paint layer removal",
+        "2": "Floor sanding"
+      }
+    },
+    "painting": {
+      "title": "Painting",
+      "description": "Professional interior and exterior painting. We work exclusively with Sigma paint for a long-lasting, beautiful and protective finish.",
+      "features": {
+        "0": "Interior and exterior painting",
+        "1": "Sigma A-quality paint",
+        "2": "Wood rot treatment and repair"
+      }
+    },
+    "tiles": {
+      "title": "Tiling",
+      "description": "Expert tiling for bathrooms, kitchens, floors and facades. All tile types, from ceramic and porcelain to natural stone.",
+      "features": {
+        "0": "Bathrooms and kitchens",
+        "1": "Floor and wall tiles",
+        "2": "Mosaic and natural stone"
+      }
+    },
+    "parquet": {
+      "title": "Parquet Flooring",
+      "description": "Professional parquet installation, sanding and finishing. From solid oak to engineered parquet — always a stylish floor.",
+      "features": {
+        "0": "Solid and engineered parquet",
+        "1": "Sanding, lacquering and oiling",
+        "2": "Subfloor and levelling"
+      }
+    },
+    "partitions": {
+      "title": "Partition Walls",
+      "description": "Expert installation of partition and dividing walls. Ideal for creating extra rooms or dividing office spaces.",
+      "features": {
+        "0": "Plaster block walls",
+        "1": "Metal-stud wall systems",
+        "2": "Sound-insulating walls"
+      }
+    }
+  },
+  "ProjectenPage": {
+    "eyebrow": "Our Portfolio",
+    "title": "Our Projects",
+    "subtitle": "View a selection of our most recent projects in Amsterdam and surroundings.",
+    "filters": {
+      "all": "All",
+      "stucco": "Plastering",
+      "tiles": "Tiling",
+      "painting": "Painting"
+    },
+    "projects": {
+      "p1": "Apartment Renovation Amsterdam-Zuid",
+      "p2": "Bathroom Remodel Jordaan",
+      "p3": "Office Building Painting Zuidas",
+      "p4": "Penthouse Plastering De Pijp",
+      "p5": "Kitchen Renovation Amsterdam-Oost",
+      "p6": "Facade Painting Canal House"
+    }
+  },
+  "FAQPage": {
+    "eyebrow": "Need Help?",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to the most commonly asked questions about our services.",
+    "ctaTitle": "Can't find your question?",
+    "ctaSubtitle": "Feel free to contact us. We're happy to help.",
+    "ctaButton": "Contact Us"
+  },
+  "AboutPage": {
+    "eyebrow": "About Us",
+    "title": "Who We Are",
+    "storyTitle": "Craftsmanship in Amsterdam since 2006",
+    "storyP1": "Kubus Klussenbedrijf is a reliable subcontractor based in Amsterdam. With over 20 years of experience in plastering, tiling and painting, we deliver craftsmanship of the highest quality. We work for both businesses and homeowners.",
+    "storyP2": "Our strength lies in quality and speed. We work exclusively with A-quality materials, including Sigma paint, and offer a warranty on all our work. From small repairs to complete renovations — every project receives the same attention and professionalism.",
+    "statYears": "Years Experience",
+    "statProjects": "Projects",
+    "statSatisfaction": "Satisfaction",
+    "certsTitle": "Certificates & Quality Marks",
+    "certsSubtitle": "We comply with the highest quality standards in construction.",
+    "certPlaceholder": "Logo here",
+    "areaTitle": "Service Area",
+    "areaDescription": "We are active in Amsterdam and the Randstad region. From the city center to the suburbs — we're happy to visit you for a free quote.",
+    "cta": "Request a Quote"
+  },
+  "ContactPage": {
+    "eyebrow": "Contact",
+    "title": "Get in Touch",
+    "subtitle": "Have a question or want to request a quote? We're here for you.",
+    "detailsTitle": "Contact Details",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "whatsappText": "Send us a message",
+    "addressLabel": "Address",
+    "hoursLabel": "Working Hours",
+    "hoursValue": "Mon–Fri: 07:00 – 18:00",
+    "hoursEmergency": "24/7 Emergency Service available",
+    "quoteCta": "Or request a free quote directly",
+    "quoteButton": "Request a Free Quote"
+  },
+  "PrivacyPage": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: April 2026",
+    "intro": {
+      "title": "1. Introduction",
+      "body": "Kubusklus, based in Amsterdam, is responsible for the processing of personal data as shown in this privacy policy. We respect your privacy and ensure that your personal data is treated confidentially."
+    },
+    "data": {
+      "title": "2. What data do we collect?",
+      "body": "We process the following personal data when you fill in our quote form:\n• Name\n• Email address\n• Phone number\n• Project description\n• Preferred start date"
+    },
+    "purpose": {
+      "title": "3. Why do we use your data?",
+      "body": "We use your data exclusively to:\n• Contact you about your quote request\n• Prepare an appropriate quote\n• Inform you about the progress of your project"
+    },
+    "sharing": {
+      "title": "4. Sharing with third parties",
+      "body": "Kubusklus does not sell your data to third parties. We only share your data when necessary for the execution of our services or when legally required."
+    },
+    "cookies": {
+      "title": "5. Cookies",
+      "body": "Our website only uses functional cookies necessary for the proper functioning of the website. We do not use tracking or marketing cookies."
+    },
+    "rights": {
+      "title": "6. Your rights",
+      "body": "Under the GDPR (General Data Protection Regulation) you have the right to:\n• View your personal data\n• Have your data corrected or deleted\n• Withdraw your consent for data processing\n• File a complaint with the Data Protection Authority"
+    },
+    "contact": {
+      "title": "7. Contact",
+      "body": "Do you have questions about our privacy policy? Contact us at info@kubusklus.nl or call 020 - 364 24 20."
+    }
+  },
+  "OffertePage": {
+    "eyebrow": "Free & No Obligation",
+    "title": "Request a Quote",
+    "subtitle": "Fill in the form and we'll contact you within 24 hours for a free, no-obligation quote.",
+    "name": "Name",
+    "namePlaceholder": "Your full name",
+    "email": "Email address",
+    "emailPlaceholder": "your@email.com",
+    "phone": "Phone number",
+    "phonePlaceholder": "+31 6 ...",
+    "service": "Service type",
+    "servicePlaceholder": "Select a service",
+    "serviceOptions": {
+      "stucco": "Plastering",
+      "tiles": "Tiling",
+      "painting": "Painting",
+      "sustainability": "Sustainability",
+      "other": "Other"
+    },
+    "description": "Project description",
+    "descriptionPlaceholder": "Describe your project as clearly as possible...",
+    "startDate": "Preferred start date (optional)",
+    "privacyLabel": "I agree to the",
+    "privacyLink": "privacy policy",
+    "submit": "Request Quote",
+    "sending": "Sending...",
+    "cooldown": "Please wait",
+    "errorMessage": "Something went wrong. Please try again or contact us by phone.",
+    "successTitle": "Thank you!",
+    "successHeading": "Your request has been received",
+    "successMessage": "We'll contact you within 24 hours to discuss your project. For urgent questions, call us at 06 212 65 372."
+  }
+}

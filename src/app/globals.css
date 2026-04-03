@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+
+  /* Kubusklus brand colors */
+  --color-brand-red: #DC2626;
+  --color-brand-red-hover: #B91C1C;
+  --color-brand-red-light: #FEF2F2;
+  --color-brand-orange: #F97316;
+
+  /* Semantic aliases for convenience */
+  --color-red-600: #DC2626;
+  --color-red-700: #B91C1C;
+  --color-red-50: #FEF2F2;
+  --color-orange-500: #F97316;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Arial, Helvetica, sans-serif;
+}
