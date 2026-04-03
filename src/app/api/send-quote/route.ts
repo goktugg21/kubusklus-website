@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { Resend } from 'resend';
 
-// Rate limiting: IP -> array of timestamps (max 3 per hour)
+// Rate limiting: IP -> array of timestamps (max 5 per hour)
 const rateLimit = new Map<string, number[]>();
 const MAX_REQUESTS = 5;
 const WINDOW_MS = 60 * 60 * 1000; // 60 minutes
@@ -37,7 +37,15 @@ function sanitize(str: string, maxLen: number): string {
 
 export async function POST(request: Request) {
   try {
-    // --- Rate limiting: 3 per hour per IP ---
+    // Parse body first so locale is available for all error messages
+    let body: Record<string, unknown>;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
+    }
+
+    // --- Rate limiting: 5 per hour per IP ---
     const hdrs = await headers();
     const forwarded = hdrs.get('x-forwarded-for');
     const clientIp = forwarded?.split(',')[0]?.trim() || hdrs.get('x-real-ip') || 'unknown';
@@ -47,8 +55,9 @@ export async function POST(request: Request) {
     const recent = timestamps.filter((t) => now - t < WINDOW_MS);
 
     if (recent.length >= MAX_REQUESTS) {
+      const nl = body.locale === 'nl';
       return NextResponse.json(
-        { error: 'Too many requests. Please try again later.' },
+        { error: nl ? 'Te veel verzoeken. Probeer het later opnieuw.' : 'Too many requests. Please try again later.' },
         { status: 429 },
       );
     }
@@ -61,8 +70,6 @@ export async function POST(request: Request) {
         { status: 503 },
       );
     }
-
-    const body = await request.json();
 
     // --- Honeypot ---
     if (body.website) {
@@ -81,11 +88,11 @@ export async function POST(request: Request) {
     };
 
     // --- Sanitize ---
-    const name = sanitize(body.name || '', 100);
-    const email = sanitize(body.email || '', 254);
-    const phone = sanitize(body.phone || '', 30);
+    const name = sanitize(String(body.name || ''), 100);
+    const email = sanitize(String(body.email || ''), 254);
+    const phone = sanitize(String(body.phone || ''), 30);
     const service = String(body.service || '').trim();
-    const description = sanitize(body.description || '', 2000);
+    const description = sanitize(String(body.description || ''), 2000);
     const startDate = body.startDate ? sanitize(String(body.startDate), 20) : undefined;
 
     // --- Validate name ---
