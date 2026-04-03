@@ -1,0 +1,373 @@
+{
+  "CookieBanner": {
+    "message": "Deze website gebruikt alleen functionele cookies voor een goede werking.",
+    "link": "Privacybeleid",
+    "accept": "Akkoord"
+  },
+  "EmergencyBar": {
+    "label": "24/7 Spoedservice",
+    "phone": "06 212 65 372"
+  },
+  "Navbar": {
+    "services": "Diensten",
+    "portfolio": "Projecten",
+    "howWeWork": "Werkwijze",
+    "about": "Over Ons",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "cta": "Gratis Offerte"
+  },
+  "Hero": {
+    "eyebrow": "AMSTERDAM & RANDSTAD",
+    "title": "Vakkundig Stukadoor, Tegelwerk & Schilderwerk",
+    "description": "Wij beweren niet, wij bewijzen het. Uw betrouwbare onderaannemer voor bedrijven en particulieren in Amsterdam. Sinds 2006.",
+    "primaryCTA": "Gratis Offerte Aanvragen",
+    "secondaryCTA": "Onze Projecten",
+    "stat1": "Jaar Ervaring",
+    "stat2": "Projecten Afgerond",
+    "stat3": "Klanttevredenheid",
+    "stat4": "Spoedservice"
+  },
+  "TrustBar": {
+    "warranty": "3–5 Jaar Garantie",
+    "freeQuote": "Gratis Offerte",
+    "quality": "Sigma A-Kwaliteit",
+    "emergency": "24/7 Spoedservice"
+  },
+  "Services": {
+    "eyebrow": "Onze Diensten",
+    "title": "Wat Wij Doen",
+    "subtitle": "Van stucwerk tot schilderwerk — wij leveren vakmanschap voor elk project.",
+    "learnMore": "Meer informatie",
+    "viewAll": "Bekijk alle diensten",
+    "facades": {
+      "title": "Buitengevels",
+      "description": "Professionele gevelafwerking en -renovatie. Van buitenstucwerk tot gevelreiniging en -herstel."
+    },
+    "decorative": {
+      "title": "Sier- en Pleisterwerk",
+      "description": "Sierpleister, glad pleisterwerk en spachtelputz. Strakke afwerkingen voor elk interieur."
+    },
+    "painting": {
+      "title": "Schilderwerk",
+      "description": "Professioneel schilderwerk binnen en buiten. Wij werken met Sigma verf voor een langdurig mooi resultaat."
+    },
+    "tiles": {
+      "title": "Tegels Plaatsen",
+      "description": "Vakkundig tegelwerk voor badkamers, keukens en vloeren. Alle soorten tegels, van keramiek tot natuursteen."
+    }
+  },
+  "Portfolio": {
+    "eyebrow": "Ons Werk",
+    "title": "Recente Projecten",
+    "subtitle": "Bekijk onze meest recente projecten en ontdek de kwaliteit van ons vakmanschap.",
+    "viewAll": "Bekijk Alle Projecten",
+    "categories": {
+      "stucco": "Stukadoorswerk",
+      "tiles": "Tegelwerk",
+      "painting": "Schilderwerk"
+    },
+    "projects": {
+      "stucco": "Appartementsrenovatie Amsterdam-Zuid",
+      "tiles": "Badkamer Verbouwing Jordaan",
+      "painting": "Kantoorpand Schilderwerk Zuidas"
+    }
+  },
+  "HowWeWork": {
+    "eyebrow": "Werkwijze",
+    "title": "Hoe Wij Werken",
+    "subtitle": "Van eerste contact tot oplevering — een helder en transparant proces.",
+    "step1": {
+      "title": "Gratis Offerte",
+      "description": "Neem contact op voor een vrijblijvende offerte. Wij bespreken uw wensen en doen een inspectie op locatie."
+    },
+    "step2": {
+      "title": "Vakwerk",
+      "description": "Ons team gaat aan de slag met professioneel gereedschap en A-kwaliteit materialen. U wordt op de hoogte gehouden."
+    },
+    "step3": {
+      "title": "Oplevering",
+      "description": "Na een grondige inspectie leveren wij het project op. U betaalt pas het eindbedrag bij goedkeuring."
+    }
+  },
+  "CTA": {
+    "title": "Klaar voor uw project?",
+    "subtitle": "Vraag vandaag nog een gratis en vrijblijvende offerte aan. Wij nemen binnen 24 uur contact met u op.",
+    "button": "Vraag Offerte Aan"
+  },
+  "FAQ": {
+    "eyebrow": "Veelgestelde Vragen",
+    "title": "Alles Wat U Wilt Weten",
+    "q1": {
+      "question": "Is de offerte gratis?",
+      "answer": "Ja, onze offertes zijn geheel gratis en vrijblijvend. Wij komen graag bij u langs om de situatie te bekijken en een eerlijke prijs af te spreken."
+    },
+    "q2": {
+      "question": "Hoe snel kunnen jullie beginnen?",
+      "answer": "Afhankelijk van onze planning kunnen wij vaak binnen 1-2 weken starten. Voor spoedklussen zijn wij 24/7 bereikbaar."
+    },
+    "q3": {
+      "question": "Hoe werkt de betaling?",
+      "answer": "Wij werken met een duidelijk betalingsschema: 30% vooraf, een tussentijdse betaling, en het eindbedrag bij oplevering."
+    },
+    "q4": {
+      "question": "Bieden jullie garantie?",
+      "answer": "Ja, wij bieden 3 tot 5 jaar garantie op ons vakmanschap. Kwaliteit staat bij ons voorop."
+    },
+    "q5": {
+      "question": "Ruimen jullie het bouwafval op?",
+      "answer": "Dit is afhankelijk van het project. Wij bespreken dit bij de offerte zodat u precies weet waar u aan toe bent."
+    },
+    "q6": {
+      "question": "Werken jullie ook in het weekend of 's avonds?",
+      "answer": "Ja, onze 24/7 spoedservice is altijd beschikbaar. Voor reguliere projecten plannen we samen het beste moment."
+    },
+    "q7": {
+      "question": "Welke materialen gebruiken jullie?",
+      "answer": "Wij werken uitsluitend met A-kwaliteit materialen, waaronder Sigma verf. Zo garanderen wij een duurzaam resultaat."
+    },
+    "q8": {
+      "question": "Regelen jullie de vergunningen?",
+      "answer": "Nee, de klant is verantwoordelijk voor het aanvragen van vergunningen en eventuele VvE-toestemming. Wij adviseren u hier graag over."
+    }
+  },
+  "Footer": {
+    "description": "Kubus Stukadoors- en Onderhoudsbedrijf. Wij beweren niet, wij bewijzen het. Sinds 2006 in Amsterdam.",
+    "servicesTitle": "Diensten",
+    "services": {
+      "facades": "Buitengevels",
+      "roughcast": "Raapwerk",
+      "walls": "Wanden en Plafond",
+      "decorative": "Sier- en Pleisterwerk",
+      "sanding": "Schuurwerk",
+      "painting": "Schilderwerk",
+      "tiles": "Tegels Plaatsen",
+      "parquet": "Parket Neerleggen",
+      "partitions": "Tussenwanden Plaatsen"
+    },
+    "quickLinksTitle": "Snelle Links",
+    "about": "Over Ons",
+    "portfolio": "Projecten",
+    "faq": "FAQ",
+    "privacy": "Privacybeleid",
+    "contactTitle": "Contact",
+    "rights": "Alle rechten voorbehouden."
+  },
+  "WerkwijzePage": {
+    "eyebrow": "Ons Proces",
+    "title": "Hoe Wij Werken",
+    "subtitle": "Een transparant en helder proces van begin tot eind.",
+    "ctaTitle": "Klaar om te beginnen?",
+    "ctaSubtitle": "Vraag vandaag nog een gratis offerte aan en ontdek hoe wij u kunnen helpen.",
+    "ctaButton": "Offerte Aanvragen"
+  },
+  "DienstenPage": {
+    "eyebrow": "Onze Diensten",
+    "title": "Wat Wij Voor U Doen",
+    "subtitle": "Professioneel vakmanschap voor elk project — van stucwerk tot parketvloeren.",
+    "cta": "Offerte Aanvragen",
+    "facades": {
+      "title": "Buitengevels",
+      "description": "Professionele gevelafwerking en -renovatie. Wij verzorgen buitenstucwerk, gevelreiniging en -herstel voor een duurzaam en strak resultaat. Van nieuwbouw tot monumentale panden.",
+      "features": {
+        "0": "Buitenstucwerk en gevelrenovatie",
+        "1": "Gevelreiniging en impregnatie",
+        "2": "Voeg- en betonreparatie"
+      }
+    },
+    "roughcast": {
+      "title": "Raapwerk",
+      "description": "Vakkundig raapwerk als onderlaag voor verdere afwerking. Wij zorgen voor een stevige, vlakke basis waarop iedere toplaag perfect hecht.",
+      "features": {
+        "0": "Cementgebonden raaplagen",
+        "1": "Binnen- en buitenraapwerk",
+        "2": "Ondergrondvoorbereiding"
+      }
+    },
+    "walls": {
+      "title": "Wanden en Plafond",
+      "description": "Complete wand- en plafondafwerking voor nieuwbouw en renovatie. Van stucen tot spachtelputz — altijd een strakke, professionele afwerking.",
+      "features": {
+        "0": "Wanden glad stucen",
+        "1": "Plafondafwerking en -reparatie",
+        "2": "Gipsblokken en voorzetwanden"
+      }
+    },
+    "decorative": {
+      "title": "Sier- en Pleisterwerk",
+      "description": "Decoratief stucwerk en sierpleister voor een unieke uitstraling. Van klassiek ornamentwerk tot moderne structuurtechnieken.",
+      "features": {
+        "0": "Sierpleister en spachtelputz",
+        "1": "Structuurpleister en stucwerk",
+        "2": "Decoratieve wandafwerkingen"
+      }
+    },
+    "sanding": {
+      "title": "Schuurwerk",
+      "description": "Professioneel schuurwerk voor wanden, plafonds en vloeren. Perfecte voorbereiding voor schilderwerk of een nieuwe afwerklaag.",
+      "features": {
+        "0": "Wanden en plafonds schuren",
+        "1": "Oude verflagen verwijderen",
+        "2": "Vloerschuurwerk"
+      }
+    },
+    "painting": {
+      "title": "Schilderwerk",
+      "description": "Professioneel schilderwerk voor binnen en buiten. Wij werken uitsluitend met Sigma verf voor een langdurig mooi en beschermend resultaat.",
+      "features": {
+        "0": "Binnen- en buitenschilderwerk",
+        "1": "Sigma A-kwaliteit verf",
+        "2": "Houtrot-behandeling en herstel"
+      }
+    },
+    "tiles": {
+      "title": "Tegels Plaatsen",
+      "description": "Vakkundig tegelwerk voor badkamers, keukens, vloeren en gevels. Alle soorten tegels, van keramiek en porselein tot natuursteen.",
+      "features": {
+        "0": "Badkamers en keukens",
+        "1": "Vloer- en wandtegels",
+        "2": "Mozaïek en natuursteen"
+      }
+    },
+    "parquet": {
+      "title": "Parket Neerleggen",
+      "description": "Professioneel parket leggen, schuren en lakken. Van massief eiken tot lamelparket — altijd een stijlvolle vloer.",
+      "features": {
+        "0": "Massief en lamelparket",
+        "1": "Schuren, lakken en oliën",
+        "2": "Ondervloer en egalisatie"
+      }
+    },
+    "partitions": {
+      "title": "Tussenwanden Plaatsen",
+      "description": "Vakkundige plaatsing van tussenwanden en scheidingswanden. Ideaal voor het creëren van extra kamers of het indelen van kantoorruimten.",
+      "features": {
+        "0": "Gipsblokken wanden",
+        "1": "Metal-stud wandsystemen",
+        "2": "Geluidsisolerende wanden"
+      }
+    }
+  },
+  "ProjectenPage": {
+    "eyebrow": "Ons Portfolio",
+    "title": "Onze Projecten",
+    "subtitle": "Bekijk een selectie van onze meest recente projecten in Amsterdam en omstreken.",
+    "filters": {
+      "all": "Alle",
+      "stucco": "Stukadoorswerk",
+      "tiles": "Tegelwerk",
+      "painting": "Schilderwerk"
+    },
+    "projects": {
+      "p1": "Appartementsrenovatie Amsterdam-Zuid",
+      "p2": "Badkamer Verbouwing Jordaan",
+      "p3": "Kantoorpand Schilderwerk Zuidas",
+      "p4": "Penthouse Stucwerk De Pijp",
+      "p5": "Keukenrenovatie Amsterdam-Oost",
+      "p6": "Gevel Schilderwerk Grachtenpand"
+    }
+  },
+  "FAQPage": {
+    "eyebrow": "Hulp Nodig?",
+    "title": "Veelgestelde Vragen",
+    "subtitle": "Hier vindt u antwoorden op de meest gestelde vragen over onze diensten.",
+    "ctaTitle": "Staat uw vraag er niet bij?",
+    "ctaSubtitle": "Neem gerust contact met ons op. Wij helpen u graag verder.",
+    "ctaButton": "Neem Contact Op"
+  },
+  "AboutPage": {
+    "eyebrow": "Over Ons",
+    "title": "Wie Wij Zijn",
+    "storyTitle": "Sinds 2006 vakmanschap in Amsterdam",
+    "storyP1": "Kubus Klussenbedrijf is een betrouwbare onderaannemer gevestigd in Amsterdam. Met meer dan 20 jaar ervaring in stukadoorswerk, tegelwerk en schilderwerk leveren wij vakmanschap van de hoogste kwaliteit. Wij werken voor zowel bedrijven als particulieren.",
+    "storyP2": "Onze kracht ligt in kwaliteit en snelheid. Wij werken uitsluitend met A-kwaliteit materialen, waaronder Sigma verf, en bieden garantie op al ons werk. Van kleine reparaties tot complete renovaties — elk project krijgt dezelfde aandacht en professionaliteit.",
+    "statYears": "Jaar Ervaring",
+    "statProjects": "Projecten",
+    "statSatisfaction": "Tevredenheid",
+    "certsTitle": "Certificaten & Keurmerken",
+    "certsSubtitle": "Wij voldoen aan de hoogste kwaliteitsnormen in de bouw.",
+    "certPlaceholder": "Logo komt hier",
+    "areaTitle": "Werkgebied",
+    "areaDescription": "Wij zijn actief in Amsterdam en de Randstad. Van het centrum tot de buitenwijken — wij komen graag bij u langs voor een vrijblijvende offerte.",
+    "cta": "Offerte Aanvragen"
+  },
+  "ContactPage": {
+    "eyebrow": "Contact",
+    "title": "Neem Contact Op",
+    "subtitle": "Heeft u een vraag of wilt u een offerte aanvragen? Wij staan voor u klaar.",
+    "detailsTitle": "Contactgegevens",
+    "phoneLabel": "Telefoon",
+    "emailLabel": "E-mail",
+    "whatsappText": "Stuur ons een bericht",
+    "addressLabel": "Adres",
+    "hoursLabel": "Openingstijden",
+    "hoursValue": "Ma–Vr: 07:00 – 18:00",
+    "hoursEmergency": "24/7 Spoedservice beschikbaar",
+    "quoteCta": "Of vraag direct een gratis offerte aan",
+    "quoteButton": "Gratis Offerte Aanvragen"
+  },
+  "PrivacyPage": {
+    "title": "Privacybeleid",
+    "lastUpdated": "Laatst bijgewerkt: april 2026",
+    "intro": {
+      "title": "1. Inleiding",
+      "body": "Kubusklus, gevestigd in Amsterdam, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in dit privacybeleid. Wij respecteren uw privacy en zorgen ervoor dat uw persoonlijke gegevens vertrouwelijk worden behandeld."
+    },
+    "data": {
+      "title": "2. Welke gegevens verzamelen wij?",
+      "body": "Wij verwerken de volgende persoonsgegevens wanneer u ons offerteformulier invult:\n• Naam\n• E-mailadres\n• Telefoonnummer\n• Projectomschrijving\n• Gewenste startdatum"
+    },
+    "purpose": {
+      "title": "3. Waarvoor gebruiken wij uw gegevens?",
+      "body": "Wij gebruiken uw gegevens uitsluitend om:\n• Contact met u op te nemen over uw offerte-aanvraag\n• Een passende offerte op te stellen\n• U te informeren over de voortgang van uw project"
+    },
+    "sharing": {
+      "title": "4. Delen met derden",
+      "body": "Kubusklus verkoopt uw gegevens niet aan derden. Wij delen uw gegevens alleen als dit nodig is voor de uitvoering van onze diensten of als wij hiertoe wettelijk verplicht zijn."
+    },
+    "cookies": {
+      "title": "5. Cookies",
+      "body": "Onze website gebruikt alleen functionele cookies die noodzakelijk zijn voor het correct functioneren van de website. Wij gebruiken geen tracking- of marketingcookies."
+    },
+    "rights": {
+      "title": "6. Uw rechten",
+      "body": "Op grond van de AVG (Algemene Verordening Gegevensbescherming) heeft u het recht om:\n• Uw persoonsgegevens in te zien\n• Uw gegevens te laten corrigeren of verwijderen\n• Uw toestemming voor gegevensverwerking in te trekken\n• Een klacht in te dienen bij de Autoriteit Persoonsgegevens"
+    },
+    "contact": {
+      "title": "7. Contact",
+      "body": "Heeft u vragen over ons privacybeleid? Neem dan contact op via info@kubusklus.nl of bel 020 - 364 24 20."
+    }
+  },
+  "OffertePage": {
+    "eyebrow": "Gratis & Vrijblijvend",
+    "title": "Offerte Aanvragen",
+    "subtitle": "Vul het formulier in en wij nemen binnen 24 uur contact met u op voor een vrijblijvende offerte.",
+    "name": "Naam",
+    "namePlaceholder": "Uw volledige naam",
+    "email": "E-mailadres",
+    "emailPlaceholder": "uw@email.nl",
+    "phone": "Telefoonnummer",
+    "phonePlaceholder": "+31 6 ...",
+    "service": "Type dienst",
+    "servicePlaceholder": "Selecteer een dienst",
+    "serviceOptions": {
+      "stucco": "Stukadoorswerk",
+      "tiles": "Tegelwerk",
+      "painting": "Schilderwerk",
+      "sustainability": "Verduurzaming",
+      "other": "Anders"
+    },
+    "description": "Projectomschrijving",
+    "descriptionPlaceholder": "Beschrijf uw project zo duidelijk mogelijk...",
+    "startDate": "Gewenste startdatum (optioneel)",
+    "privacyLabel": "Ik ga akkoord met het",
+    "privacyLink": "privacybeleid",
+    "submit": "Offerte Aanvragen",
+    "sending": "Verzenden...",
+    "cooldown": "Even geduld",
+    "errorMessage": "Er is iets misgegaan. Probeer het opnieuw of neem telefonisch contact met ons op.",
+    "successTitle": "Bedankt!",
+    "successHeading": "Uw aanvraag is ontvangen",
+    "successMessage": "Wij nemen binnen 24 uur contact met u op om uw project te bespreken. Voor spoedvragen kunt u ons bellen op 06 212 65 372."
+  }
+}
