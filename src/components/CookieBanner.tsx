@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 export default function CookieBanner() {
   const t = useTranslations('CookieBanner');
@@ -24,9 +25,9 @@ export default function CookieBanner() {
       <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-gray-300 text-center sm:text-left">
           {t('message')}{' '}
-          <a href="/privacy" className="text-red-500 underline hover:text-red-400">
+          <Link href="/privacy" className="text-red-500 underline hover:text-red-400">
             {t('link')}
-          </a>
+          </Link>
         </p>
         <button
           type="button"
