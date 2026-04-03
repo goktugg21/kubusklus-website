@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="flex h-auto py-2 md:py-3 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image src="/images/logo-navbar2.png" alt="Kubusklus" width={215} height={90} style={{ objectFit: 'contain' }} priority />
+            <Image src="/images/logo-navbar2.png" alt="Kubusklus" width={215} height={90} className="max-w-full h-auto" style={{ objectFit: 'contain' }} priority />
           </Link>
 
           {/* Desktop nav links */}
