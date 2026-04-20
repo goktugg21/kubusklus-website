@@ -1,18 +1,20 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useLocale } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-export default function LanguageSwitcher() {
+function LanguageSwitcherInner() {
   const locale = useLocale();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const router = useRouter();
 
   function switchLocale() {
     const nextLocale = locale === 'nl' ? 'en' : 'nl';
-    // Replace current locale prefix in the pathname
     const newPath = pathname.replace(`/${locale}`, `/${nextLocale}`);
-    router.push(newPath);
+    const query = searchParams.toString();
+    router.push(query ? `${newPath}?${query}` : newPath);
   }
 
   return (
@@ -27,5 +29,13 @@ export default function LanguageSwitcher() {
       </svg>
       {locale === 'nl' ? 'EN' : 'NL'}
     </button>
+  );
+}
+
+export default function LanguageSwitcher() {
+  return (
+    <Suspense fallback={null}>
+      <LanguageSwitcherInner />
+    </Suspense>
   );
 }

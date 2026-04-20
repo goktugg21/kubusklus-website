@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: 'Kubusklus',
     images: [
       {
-        url: 'https://plus.unsplash.com/premium_photo-1683120653498-1d98e5148154?w=1200&h=630&fit=crop&q=80',
+        url: '/images/projects/hero-bathroom.jpg',
         width: 1200,
         height: 630,
       },

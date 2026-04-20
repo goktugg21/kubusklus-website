@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 const allProjects = [
-  { image: 'https://images.unsplash.com/photo-1770885514360-f42594da979e?w=600&q=80&auto=format&fit=crop', category: 'stucco', titleKey: 'p1' },
-  { image: 'https://images.unsplash.com/photo-1722604831218-2d6f55871c49?w=600&q=80&auto=format&fit=crop', category: 'tiles', titleKey: 'p2' },
-  { image: 'https://plus.unsplash.com/premium_photo-1681566677688-9b6b09cfadd2?w=600&q=80&auto=format&fit=crop', category: 'painting', titleKey: 'p3' },
-  { image: 'https://images.unsplash.com/photo-1768742844927-bed23ad6e365?w=600&q=80&auto=format&fit=crop', category: 'stucco', titleKey: 'p4' },
-  { image: 'https://plus.unsplash.com/premium_photo-1683134399397-2407679051f7?w=600&q=80&auto=format&fit=crop', category: 'tiles', titleKey: 'p5' },
-  { image: 'https://images.unsplash.com/photo-1664702927005-2270b144ef04?w=600&q=80&auto=format&fit=crop', category: 'painting', titleKey: 'p6' },
+  { image: '/images/projects/project-luxury-bathroom.jpg', category: 'stucco', titleKey: 'p1' },
+  { image: '/images/projects/project-modern-bathroom.jpg', category: 'tiles', titleKey: 'p2' },
+  { image: '/images/projects/tegels-marble-bath.jpg', category: 'tiles', titleKey: 'p3' },
+  { image: '/images/projects/project-decorative-floor.jpg', category: 'tiles', titleKey: 'p4' },
+  { image: '/images/projects/buitengevels-facade.jpg', category: 'stucco', titleKey: 'p5' },
+  { image: '/images/projects/sigma-paint.jpg', category: 'painting', titleKey: 'p6' },
 ];
 
 const categories = ['all', 'stucco', 'tiles', 'painting'] as const;

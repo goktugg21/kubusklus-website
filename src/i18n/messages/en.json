@@ -65,12 +65,14 @@
     "categories": {
       "stucco": "Plastering",
       "tiles": "Tiling",
-      "painting": "Painting"
+      "painting": "Painting",
+      "decorative": "Decorative"
     },
     "projects": {
-      "stucco": "Apartment Renovation Amsterdam-Zuid",
-      "tiles": "Bathroom Remodel Jordaan",
-      "painting": "Office Building Painting Zuidas"
+      "stucco": "Luxury Bathroom Renovation",
+      "tiles": "Modern Bathroom",
+      "painting": "Office Building Painting Zuidas",
+      "decorative": "Decorative Tilework"
     }
   },
   "HowWeWork": {
@@ -259,12 +261,12 @@
       "painting": "Painting"
     },
     "projects": {
-      "p1": "Apartment Renovation Amsterdam-Zuid",
-      "p2": "Bathroom Remodel Jordaan",
-      "p3": "Office Building Painting Zuidas",
-      "p4": "Penthouse Plastering De Pijp",
-      "p5": "Kitchen Renovation Amsterdam-Oost",
-      "p6": "Facade Painting Canal House"
+      "p1": "Luxury Bathroom Renovation",
+      "p2": "Modern Bathroom",
+      "p3": "Marble Bathroom",
+      "p4": "Decorative Tilework",
+      "p5": "Facade Renovation",
+      "p6": "Painting Project"
     }
   },
   "FAQPage": {
