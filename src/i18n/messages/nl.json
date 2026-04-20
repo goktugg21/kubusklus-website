@@ -65,12 +65,14 @@
     "categories": {
       "stucco": "Stukadoorswerk",
       "tiles": "Tegelwerk",
-      "painting": "Schilderwerk"
+      "painting": "Schilderwerk",
+      "decorative": "Decoratief"
     },
     "projects": {
-      "stucco": "Appartementsrenovatie Amsterdam-Zuid",
-      "tiles": "Badkamer Verbouwing Jordaan",
-      "painting": "Kantoorpand Schilderwerk Zuidas"
+      "stucco": "Luxe Badkamer Renovatie",
+      "tiles": "Moderne Badkamer",
+      "painting": "Kantoorpand Schilderwerk Zuidas",
+      "decorative": "Decoratief Tegelwerk"
     }
   },
   "HowWeWork": {
@@ -259,12 +261,12 @@
       "painting": "Schilderwerk"
     },
     "projects": {
-      "p1": "Appartementsrenovatie Amsterdam-Zuid",
-      "p2": "Badkamer Verbouwing Jordaan",
-      "p3": "Kantoorpand Schilderwerk Zuidas",
-      "p4": "Penthouse Stucwerk De Pijp",
-      "p5": "Keukenrenovatie Amsterdam-Oost",
-      "p6": "Gevel Schilderwerk Grachtenpand"
+      "p1": "Luxe Badkamer Renovatie",
+      "p2": "Moderne Badkamer",
+      "p3": "Marmer Badkamer",
+      "p4": "Decoratief Tegelwerk",
+      "p5": "Gevel Renovatie",
+      "p6": "Schilderwerk Project"
     }
   },
   "FAQPage": {

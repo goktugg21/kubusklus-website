@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 export default function Hero() {
@@ -10,8 +10,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover"
         style={{
-          backgroundImage:
-            'url(https://plus.unsplash.com/premium_photo-1683120653498-1d98e5148154?w=1920&auto=format&fit=crop&q=80)',
+          backgroundImage: 'url(/images/projects/hero-bathroom.jpg)',
           backgroundPosition: 'center 20%',
         }}
       />

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 
 export const metadata: Metadata = {
   title: 'Diensten',
@@ -24,15 +24,15 @@ const iconPaths = {
 };
 
 const services = [
-  { key: 'facades', anchor: 'buitengevels', image: 'https://images.unsplash.com/photo-1770885514360-f42594da979e?w=800&q=80&auto=format&fit=crop', icon: iconPaths.building },
-  { key: 'roughcast', anchor: 'raapwerk', image: 'https://plus.unsplash.com/premium_photo-1672178140315-bd984bfe1150?w=800&q=80&auto=format&fit=crop', icon: iconPaths.layers },
-  { key: 'walls', anchor: 'wanden-en-plafond', image: 'https://images.unsplash.com/photo-1674161453313-ad558cb0e954?w=800&q=80&auto=format&fit=crop', icon: iconPaths.squares },
-  { key: 'decorative', anchor: 'sier-en-pleisterwerk', image: 'https://images.unsplash.com/photo-1768742844927-bed23ad6e365?w=800&q=80&auto=format&fit=crop', icon: iconPaths.sparkle },
-  { key: 'sanding', anchor: 'schuurwerk', image: 'https://images.unsplash.com/photo-1664702927005-2270b144ef04?w=800&q=80&auto=format&fit=crop', icon: iconPaths.sand },
-  { key: 'painting', anchor: 'schilderwerk', image: 'https://plus.unsplash.com/premium_photo-1681566677688-9b6b09cfadd2?w=800&q=80&auto=format&fit=crop', icon: iconPaths.paint },
-  { key: 'tiles', anchor: 'tegels-plaatsen', image: 'https://images.unsplash.com/photo-1722604831218-2d6f55871c49?w=800&q=80&auto=format&fit=crop', icon: iconPaths.squares },
+  { key: 'facades', anchor: 'buitengevels', image: '/images/projects/buitengevels-facade.jpg', icon: iconPaths.building },
+  { key: 'roughcast', anchor: 'raapwerk', image: '/images/projects/raapwerk-plastering.jpg', icon: iconPaths.layers },
+  { key: 'walls', anchor: 'wanden-en-plafond', image: '/images/projects/tussenwanden-ceiling.jpg', icon: iconPaths.squares },
+  { key: 'decorative', anchor: 'sier-en-pleisterwerk', image: '/images/projects/raapwerk-plastering.jpg', icon: iconPaths.sparkle },
+  { key: 'sanding', anchor: 'schuurwerk', image: '/images/projects/buitengevels-facade.jpg', icon: iconPaths.sand },
+  { key: 'painting', anchor: 'schilderwerk', image: '/images/projects/sigma-paint.jpg', icon: iconPaths.paint },
+  { key: 'tiles', anchor: 'tegels-plaatsen', image: '/images/projects/tegels-marble-bath.jpg', icon: iconPaths.squares },
   { key: 'parquet', anchor: 'parket-neerleggen', image: 'https://plus.unsplash.com/premium_photo-1683134399397-2407679051f7?w=800&q=80&auto=format&fit=crop', icon: iconPaths.floor },
-  { key: 'partitions', anchor: 'tussenwanden-plaatsen', image: 'https://images.unsplash.com/photo-1768321916948-187505429cfa?w=800&q=80&auto=format&fit=crop', icon: iconPaths.wall },
+  { key: 'partitions', anchor: 'tussenwanden-plaatsen', image: '/images/projects/tussenwanden-ceiling.jpg', icon: iconPaths.wall },
 ];
 
 function ServiceContent() {
@@ -89,7 +89,7 @@ function ServiceContent() {
                 </ul>
                 <div className="mt-8">
                   <Link
-                    href="/offerte"
+                    href={`/offerte?service=${service.anchor}`}
                     className="inline-block rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-700 transition-colors"
                   >
                     {t('cta')}

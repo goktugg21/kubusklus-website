@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 
 export const metadata: Metadata = {
   title: 'Over Ons',
@@ -67,7 +67,7 @@ function AboutContent() {
             <div
               className="aspect-[4/3] rounded-2xl bg-cover bg-center"
               style={{
-                backgroundImage: 'url(https://plus.unsplash.com/premium_photo-1682974931920-22fd8a879140?w=800&q=80&auto=format&fit=crop)',
+                backgroundImage: 'url(/images/projects/over-ons-team.jpg)',
               }}
             />
           </div>

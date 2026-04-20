@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { Suspense, useState, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { Link } from '@/i18n/routing';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
@@ -10,6 +11,20 @@ const serviceOptions = [
   'facades', 'roughcast', 'walls', 'decorative', 'sanding',
   'painting', 'tiles', 'parquet', 'partitions', 'other',
 ] as const;
+
+type ServiceKey = typeof serviceOptions[number];
+
+const slugToServiceKey: Record<string, ServiceKey> = {
+  'buitengevels': 'facades',
+  'raapwerk': 'roughcast',
+  'wanden-en-plafond': 'walls',
+  'sier-en-pleisterwerk': 'decorative',
+  'schuurwerk': 'sanding',
+  'schilderwerk': 'painting',
+  'tegels-plaatsen': 'tiles',
+  'parket-neerleggen': 'parquet',
+  'tussenwanden-plaatsen': 'partitions',
+};
 
 function groupRtl(s: string): string {
   const groups: string[] = [];
@@ -40,8 +55,18 @@ function formatPhone(value: string): string {
 }
 
 export default function OffertePage() {
+  return (
+    <Suspense fallback={null}>
+      <OfferteForm />
+    </Suspense>
+  );
+}
+
+function OfferteForm() {
   const t = useTranslations('OffertePage');
   const locale = useLocale();
+  const searchParams = useSearchParams();
+  const initialService = slugToServiceKey[searchParams.get('service') ?? ''] ?? '';
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [isRateLimit, setIsRateLimit] = useState(false);
@@ -156,8 +181,8 @@ export default function OffertePage() {
 
       {/* Form */}
       <section className="bg-gray-50 py-16">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-          <form ref={formRef} onSubmit={handleSubmit} onChange={clearError} className="space-y-6 rounded-2xl bg-white p-8 shadow-sm">
+        <div className="mx-auto max-w-[660px] px-4 sm:px-6 lg:px-8">
+          <form ref={formRef} onSubmit={handleSubmit} onChange={clearError} className="space-y-6 rounded-2xl bg-white p-8 shadow-[0_4px_24px_rgb(0_0_0_/_0.06)]">
             {/* Honeypot */}
             <div className="absolute -left-2499.75 h-0 w-0 overflow-hidden" aria-hidden="true">
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
@@ -223,6 +248,7 @@ export default function OffertePage() {
                 name="service"
                 required
                 disabled={isSending}
+                defaultValue={initialService}
                 className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
               >
                 <option value="">{t('servicePlaceholder')}</option>
@@ -306,7 +332,7 @@ export default function OffertePage() {
             <button
               type="submit"
               disabled={isSending}
-              className="w-full rounded-lg bg-red-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-red-700 transition-colors disabled:bg-red-400 disabled:cursor-not-allowed flex items-center justify-center gap-x-2"
+              className="w-full rounded-lg bg-red-600 px-6 py-3 text-base font-semibold text-white shadow-[0_4px_12px_rgb(220_38_38_/_0.3)] hover:bg-red-700 transition-colors disabled:bg-red-400 disabled:cursor-not-allowed flex items-center justify-center gap-x-2"
             >
               {isSending && (
                 <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">

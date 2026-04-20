@@ -1,18 +1,18 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 const projects = [
   {
-    image: 'https://plus.unsplash.com/premium_photo-1672178140315-bd984bfe1150?w=600&q=80&auto=format&fit=crop',
+    image: '/images/projects/project-luxury-bathroom.jpg',
     categoryKey: 'stucco',
   },
   {
-    image: 'https://images.unsplash.com/photo-1722604831218-2d6f55871c49?w=600&q=80&auto=format&fit=crop',
+    image: '/images/projects/project-modern-bathroom.jpg',
     categoryKey: 'tiles',
   },
   {
-    image: 'https://plus.unsplash.com/premium_photo-1681566677688-9b6b09cfadd2?w=600&q=80&auto=format&fit=crop',
-    categoryKey: 'painting',
+    image: '/images/projects/project-decorative-floor.jpg',
+    categoryKey: 'decorative',
   },
 ];
 
@@ -59,6 +59,7 @@ export default function PortfolioPreview() {
                 <h3 className="mt-2 text-xl font-bold text-white font-[family-name:var(--font-heading)]">
                   {t(`projects.${project.categoryKey}`)}
                 </h3>
+                <p className="mt-1 text-sm text-gray-300">Amsterdam</p>
               </div>
             </Link>
           ))}
