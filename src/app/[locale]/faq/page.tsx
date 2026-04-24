@@ -3,11 +3,12 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import FAQ from '@/components/home/FAQ';
 import { Link } from '@/i18n/routing';
+import { buildPageMetadata } from '@/lib/pageMetadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata.faq' });
-  return { title: t('title'), description: t('description') };
+  return { title: t('title'), description: t('description'), ...buildPageMetadata(locale, '/faq') };
 }
 
 type Props = {

@@ -6,6 +6,16 @@ import { kv } from '@vercel/kv';
 const RATE_LIMIT_WINDOW_SECONDS = 3600;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 
+const ALLOWED_ORIGINS = [
+  'https://kubusklus.nl',
+  'https://www.kubusklus.nl',
+  'https://kubusklus-website.vercel.app',
+];
+
+// Preview deployments use dynamic vercel.app subdomains — allow them
+// in development and preview builds only.
+const isPreview = process.env.VERCEL_ENV === 'preview' || process.env.NODE_ENV === 'development';
+
 async function checkRateLimit(ip: string): Promise<{ ok: boolean; retryAfter?: number }> {
   if (!ip || ip === 'unknown') return { ok: true };
 
@@ -57,6 +67,13 @@ function sanitize(str: string, maxLen: number): string {
 
 export async function POST(request: Request) {
   try {
+    // --- Origin check: block cross-origin / no-Origin requests ---
+    const origin = request.headers.get('origin') || '';
+    const isAllowed = ALLOWED_ORIGINS.includes(origin) || (isPreview && origin.endsWith('.vercel.app'));
+    if (!isAllowed) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+
     // Parse body first so locale is available for all error messages
     let body: Record<string, unknown>;
     try {

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import { buildPageMetadata } from '@/lib/pageMetadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata.privacy' });
-  return { title: t('title'), description: t('description') };
+  return { title: t('title'), description: t('description'), ...buildPageMetadata(locale, '/privacy') };
 }
 
 type Props = {
