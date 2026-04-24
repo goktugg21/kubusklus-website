@@ -3,15 +3,15 @@ import { useTranslations } from 'next-intl';
 
 const projects = [
   {
-    image: '/images/projects/portfolio-stucwerk.jpg',
+    image: '/images/projects/portfolio-stucwerk.webp',
     categoryKey: 'stucco',
   },
   {
-    image: '/images/projects/portfolio-tegelwerk.jpg',
+    image: '/images/projects/portfolio-tegelwerk.webp',
     categoryKey: 'tiles',
   },
   {
-    image: '/images/projects/project-decorative-floor.jpg',
+    image: '/images/projects/project-decorative-floor.webp',
     categoryKey: 'decorative',
   },
 ];

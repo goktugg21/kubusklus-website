@@ -24,15 +24,15 @@ const iconPaths = {
 };
 
 const services = [
-  { key: 'facades', anchor: 'buitengevels', image: '/images/projects/buitengevels-facade.jpg', icon: iconPaths.building },
-  { key: 'roughcast', anchor: 'raapwerk', image: '/images/projects/raapwerk-plastering.jpg', icon: iconPaths.layers },
-  { key: 'walls', anchor: 'wanden-en-plafond', image: '/images/projects/wanden-plafond-afgewerkt.jpg', icon: iconPaths.squares, imagePosition: 'center bottom' },
-  { key: 'decorative', anchor: 'sier-en-pleisterwerk', image: '/images/projects/sier-pleisterwerk.jpg', icon: iconPaths.sparkle, imagePosition: 'right bottom' },
-  { key: 'sanding', anchor: 'schuurwerk', image: '/images/projects/schuurwerk-actie.jpg', icon: iconPaths.sand, imagePosition: 'center 25%' },
-  { key: 'painting', anchor: 'schilderwerk', image: '/images/projects/sigma-paint.jpg', icon: iconPaths.paint },
-  { key: 'tiles', anchor: 'tegels-plaatsen', image: '/images/projects/tegels-leggen.jpg', icon: iconPaths.squares },
-  { key: 'parquet', anchor: 'parket-neerleggen', image: '/images/projects/parket-werk.jpg', icon: iconPaths.floor },
-  { key: 'partitions', anchor: 'tussenwanden-plaatsen', image: '/images/projects/tussenwanden-ceiling.jpg', icon: iconPaths.wall },
+  { key: 'facades', anchor: 'buitengevels', image: '/images/projects/buitengevels-facade.webp', icon: iconPaths.building },
+  { key: 'roughcast', anchor: 'raapwerk', image: '/images/projects/raapwerk-plastering.webp', icon: iconPaths.layers },
+  { key: 'walls', anchor: 'wanden-en-plafond', image: '/images/projects/wanden-plafond-afgewerkt.webp', icon: iconPaths.squares, imagePosition: 'center bottom' },
+  { key: 'decorative', anchor: 'sier-en-pleisterwerk', image: '/images/projects/sier-pleisterwerk.webp', icon: iconPaths.sparkle, imagePosition: 'right bottom' },
+  { key: 'sanding', anchor: 'schuurwerk', image: '/images/projects/schuurwerk-actie.webp', icon: iconPaths.sand, imagePosition: 'center 25%' },
+  { key: 'painting', anchor: 'schilderwerk', image: '/images/projects/sigma-paint.webp', icon: iconPaths.paint },
+  { key: 'tiles', anchor: 'tegels-plaatsen', image: '/images/projects/tegels-leggen.webp', icon: iconPaths.squares },
+  { key: 'parquet', anchor: 'parket-neerleggen', image: '/images/projects/parket-werk.webp', icon: iconPaths.floor },
+  { key: 'partitions', anchor: 'tussenwanden-plaatsen', image: '/images/projects/tussenwanden-ceiling.webp', icon: iconPaths.wall },
 ];
 
 function ServiceContent() {

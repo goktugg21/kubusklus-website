@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 const allProjects = [
-  { image: '/images/projects/project-luxury-bathroom.jpg', category: 'tiles', titleKey: 'p1' },
-  { image: '/images/projects/project-modern-bathroom.jpg', category: 'tiles', titleKey: 'p2' },
-  { image: '/images/projects/tegels-marble-bath.jpg', category: 'tiles', titleKey: 'p3' },
-  { image: '/images/projects/project-plafond-renovatie.jpg', category: 'stucco', titleKey: 'p4' },
-  { image: '/images/projects/project-puiopening.jpg', category: 'stucco', titleKey: 'p5' },
-  { image: '/images/projects/project-vloer-vernieuwing.jpg', category: 'tiles', titleKey: 'p6' },
+  { image: '/images/projects/project-luxury-bathroom.webp', category: 'tiles', titleKey: 'p1' },
+  { image: '/images/projects/project-modern-bathroom.webp', category: 'tiles', titleKey: 'p2' },
+  { image: '/images/projects/tegels-marble-bath.webp', category: 'tiles', titleKey: 'p3' },
+  { image: '/images/projects/project-plafond-renovatie.webp', category: 'stucco', titleKey: 'p4' },
+  { image: '/images/projects/project-puiopening.webp', category: 'stucco', titleKey: 'p5' },
+  { image: '/images/projects/project-vloer-vernieuwing.webp', category: 'tiles', titleKey: 'p6' },
 ];
 
 const categories = ['all', 'stucco', 'tiles'] as const;

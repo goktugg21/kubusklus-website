@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: 'Kubusklus',
     images: [
       {
-        url: '/images/projects/hero-renovatie.jpg',
+        url: '/images/projects/hero-renovatie.webp',
         width: 1200,
         height: 630,
       },

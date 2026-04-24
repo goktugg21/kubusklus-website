@@ -67,7 +67,7 @@ function AboutContent() {
             <div
               className="aspect-[4/3] rounded-2xl bg-cover bg-center"
               style={{
-                backgroundImage: 'url(/images/projects/over-ons-team.jpg)',
+                backgroundImage: 'url(/images/projects/over-ons-team.webp)',
               }}
             />
           </div>
