@@ -312,7 +312,11 @@ function OfferteForm() {
 
             {/* Error banner — blue for rate-limit (429), red for other errors */}
             {status === 'error' && errorMsg && (
-              <div className={`rounded-lg border p-4 ${isRateLimit ? 'bg-blue-50 border-blue-200' : 'bg-red-50 border-red-200'}`}>
+              <div
+                role="alert"
+                aria-live="polite"
+                className={`rounded-lg border p-4 ${isRateLimit ? 'bg-blue-50 border-blue-200' : 'bg-red-50 border-red-200'}`}
+              >
                 <div className="flex items-center gap-x-3">
                   {isRateLimit ? (
                     <svg className="h-5 w-5 shrink-0 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
