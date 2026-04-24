@@ -6,16 +6,6 @@ import { kv } from '@vercel/kv';
 const RATE_LIMIT_WINDOW_SECONDS = 3600;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 
-const ALLOWED_ORIGINS = [
-  'https://kubusklus.nl',
-  'https://www.kubusklus.nl',
-  'https://kubusklus-website.vercel.app',
-];
-
-// Preview deployments use dynamic vercel.app subdomains — allow them
-// in development and preview builds only.
-const isPreview = process.env.VERCEL_ENV === 'preview' || process.env.NODE_ENV === 'development';
-
 async function checkRateLimit(ip: string): Promise<{ ok: boolean; retryAfter?: number }> {
   if (!ip || ip === 'unknown') return { ok: true };
 
@@ -67,13 +57,6 @@ function sanitize(str: string, maxLen: number): string {
 
 export async function POST(request: Request) {
   try {
-    // --- Origin check: block cross-origin / no-Origin requests ---
-    const origin = request.headers.get('origin') || '';
-    const isAllowed = ALLOWED_ORIGINS.includes(origin) || (isPreview && origin.endsWith('.vercel.app'));
-    if (!isAllowed) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-    }
-
     // Parse body first so locale is available for all error messages
     let body: Record<string, unknown>;
     try {
@@ -112,6 +95,17 @@ export async function POST(request: Request) {
     // --- Honeypot ---
     if (body.website) {
       return NextResponse.json({ success: true });
+    }
+
+    // --- Invisible bot gate: reject too-fast submissions ---
+    // Real users spend 20+ seconds on the form; bots POST in <2s.
+    const loadedAt = Number(body.formLoadedAt);
+    if (loadedAt && !Number.isNaN(loadedAt)) {
+      const elapsedMs = Date.now() - loadedAt;
+      if (elapsedMs < 3000) {
+        // Silent success — don't reveal the trap.
+        return NextResponse.json({ success: true });
+      }
     }
 
     // --- Locale-aware error messages ---

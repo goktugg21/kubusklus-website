@@ -72,6 +72,7 @@ function OfferteForm() {
   const [isRateLimit, setIsRateLimit] = useState(false);
   const [phone, setPhone] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
+  const formLoadedAtRef = useRef<number>(Date.now());
 
   function clearError() {
     if (status === 'error') {
@@ -100,6 +101,7 @@ function OfferteForm() {
       startDate: (formData.get('startDate') as string) || undefined,
       website: formData.get('website') as string,
       locale,
+      formLoadedAt: formLoadedAtRef.current,
     };
 
     try {
