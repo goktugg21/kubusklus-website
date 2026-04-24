@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
         // unsafe-inline on script/style required for Next.js RSC payloads and
         // JSON-LD — acceptable since no user-generated content is rendered.
         // Tighten to nonce-based once we move off vercel.app to kubusklus.nl.
+        // NOTE: connect-src is 'self' only. If you later add Vercel Analytics,
+        // Plausible, Google Analytics, or any telemetry, add their domain(s).
         {
           key: 'Content-Security-Policy',
           value: [
