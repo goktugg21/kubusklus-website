@@ -1,8 +1,49 @@
 {
-  "CookieBanner": {
-    "message": "This website only uses functional cookies for proper operation.",
-    "link": "Privacy Policy",
-    "accept": "Accept"
+  "Metadata": {
+    "siteName": "Kubusklus",
+    "home": {
+      "title": "Kubusklus — Plastering, Tiling & Painting in Amsterdam",
+      "description": "Expert plastering, tiling and painting services in Amsterdam since 2006. We don't claim it — we prove it. Request a free quote today.",
+      "ogDescription": "Your reliable subcontractor in Amsterdam. Since 2006.",
+      "ogImageAlt": "Kubusklus craftsman at work in Amsterdam"
+    },
+    "diensten": {
+      "title": "Services",
+      "description": "All Kubusklus services: exterior facades, plastering, walls, decorative finishes, sanding, painting, tiling, parquet and partition walls in Amsterdam."
+    },
+    "projecten": {
+      "title": "Projects",
+      "description": "Browse our recent projects in Amsterdam: plastering, tiling, bathroom renovations and more."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Get in touch with Kubusklus. Rhoneweg 26H, 1043 AH Amsterdam. Call 06 44 33 11 91 or WhatsApp for a free, no-obligation quote."
+    },
+    "overOns": {
+      "title": "About Us",
+      "description": "Kubus Construction & Maintenance — craftsmanship in Amsterdam since 2006. Over 20 years of experience and 500+ completed projects."
+    },
+    "werkwijze": {
+      "title": "How We Work",
+      "description": "How Kubusklus works: from first contact to delivery — a clear, transparent three-step process."
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Answers to frequently asked questions about Kubusklus' services, quotes and process."
+    },
+    "offerte": {
+      "title": "Request a Free Quote",
+      "description": "Request a free, no-obligation quote from Kubusklus. Reply within 24 hours. Quality craftsmanship in Amsterdam since 2006."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Kubusklus privacy policy. How we handle your data."
+    }
+  },
+  "Common": {
+    "whatsappAria": "Chat via WhatsApp",
+    "switchToEN": "Switch to English",
+    "switchToNL": "Switch to Dutch"
   },
   "EmergencyBar": {
     "label": "24/7 Emergency Service",
@@ -15,7 +56,8 @@
     "about": "About Us",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Free Quote"
+    "cta": "Free Quote",
+    "toggleMenu": "Open or close menu"
   },
   "Hero": {
     "eyebrow": "AMSTERDAM & RANDSTAD",
@@ -62,6 +104,7 @@
     "title": "Recent Projects",
     "subtitle": "View our most recent projects and discover the quality of our craftsmanship.",
     "viewAll": "View All Projects",
+    "city": "Amsterdam",
     "categories": {
       "stucco": "Plastering",
       "tiles": "Tiling",
@@ -254,6 +297,7 @@
     "eyebrow": "Our Portfolio",
     "title": "Our Projects",
     "subtitle": "View a selection of our most recent projects in Amsterdam and surroundings.",
+    "closeLightbox": "Close photo",
     "filters": {
       "all": "All",
       "stucco": "Plastering",
@@ -329,7 +373,7 @@
     },
     "cookies": {
       "title": "5. Cookies",
-      "body": "Our website only uses functional cookies necessary for the proper functioning of the website. We do not use tracking or marketing cookies."
+      "body": "Our website uses only one strictly necessary cookie (NEXT_LOCALE) to remember your language preference. We do not use analytics, tracking or marketing cookies."
     },
     "rights": {
       "title": "6. Your rights",
@@ -339,6 +383,12 @@
       "title": "7. Contact",
       "body": "Do you have questions about our privacy policy? Contact us at info@kubusklus.nl or call 020 - 364 24 20."
     }
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved. Check the URL or return to the homepage.",
+    "backHome": "Back to homepage",
+    "contact": "Contact us"
   },
   "OffertePage": {
     "eyebrow": "Free & No Obligation",

@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, DM_Sans } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import EmergencyBar from '@/components/layout/EmergencyBar';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import CookieBanner from '@/components/CookieBanner';
 import '../globals.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -22,33 +21,44 @@ const dmSans = DM_Sans({
   weight: ['400', '500', '600'],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: 'Kubusklus — Stukadoor, Tegelwerk & Schilderwerk Amsterdam',
-    template: '%s | Kubusklus Amsterdam',
-  },
-  description:
-    'Vakkundig stukadoor, tegelwerk en schilderwerk in Amsterdam. Sinds 2006. Wij beweren niet, wij bewijzen het. Gratis offerte.',
-  metadataBase: new URL('https://kubusklus.nl'),
-  icons: {
-    icon: '/favicon.svg',
-  },
-  openGraph: {
-    title: 'Kubusklus — Vakkundig Stukadoor, Tegelwerk & Schilderwerk',
-    description: 'Uw betrouwbare onderaannemer in Amsterdam. Sinds 2006.',
-    url: 'https://kubusklus.nl',
-    siteName: 'Kubusklus',
-    images: [
-      {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.home' });
+  const tSite = await getTranslations({ locale, namespace: 'Metadata' });
+
+  return {
+    metadataBase: new URL('https://kubusklus.nl'),
+    title: {
+      default: t('title'),
+      template: `%s | ${tSite('siteName')}`,
+    },
+    description: t('description'),
+    icons: { icon: '/favicon.svg' },
+    openGraph: {
+      title: t('title'),
+      description: t('ogDescription'),
+      url: `https://kubusklus.nl/${locale}`,
+      siteName: tSite('siteName'),
+      images: [{
         url: '/images/projects/hero-renovatie.webp',
         width: 1200,
         height: 630,
+        alt: t('ogImageAlt'),
+      }],
+      locale: locale === 'nl' ? 'nl_NL' : 'en_US',
+      type: 'website',
+    },
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        nl: '/nl',
+        en: '/en',
+        'x-default': '/nl',
       },
-    ],
-    locale: 'nl_NL',
-    type: 'website',
-  },
-};
+    },
+    robots: { index: true, follow: true },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -91,8 +101,8 @@ export default async function LocaleLayout({ children, params }: Props) {
               },
               geo: {
                 '@type': 'GeoCoordinates',
-                latitude: 52.3456,
-                longitude: 4.8147,
+                latitude: 52.3905,
+                longitude: 4.8285,
               },
               openingHoursSpecification: [
                 {
@@ -124,7 +134,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           <main className="flex-1">{children}</main>
           <Footer />
           <WhatsAppButton />
-          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

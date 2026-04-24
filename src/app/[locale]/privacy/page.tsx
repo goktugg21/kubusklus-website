@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 
-export const metadata: Metadata = {
-  title: 'Privacybeleid',
-  description: 'Privacybeleid van Kubusklus. Hoe wij omgaan met uw persoonsgegevens conform de AVG/GDPR.',
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.privacy' });
+  return { title: t('title'), description: t('description') };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;

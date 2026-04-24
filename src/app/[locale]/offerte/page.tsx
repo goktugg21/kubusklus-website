@@ -199,7 +199,7 @@ function OfferteForm() {
                 type="text"
                 required
                 disabled={isSending}
-                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
+                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder={t('namePlaceholder')}
               />
             </div>
@@ -215,7 +215,7 @@ function OfferteForm() {
                 type="email"
                 required
                 disabled={isSending}
-                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
+                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder={t('emailPlaceholder')}
               />
             </div>
@@ -230,7 +230,7 @@ function OfferteForm() {
                 name="phone"
                 type="tel"
                 disabled={isSending}
-                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
+                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder={t('phonePlaceholder')}
                 value={phone}
                 onChange={(e) => setPhone(formatPhone(e.target.value))}
@@ -271,7 +271,7 @@ function OfferteForm() {
                 required
                 rows={4}
                 disabled={isSending}
-                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors resize-y disabled:bg-gray-50 disabled:text-gray-500"
+                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors resize-y disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder={t('descriptionPlaceholder')}
               />
               <p className="mt-1.5 text-sm text-gray-400 italic">{t('descriptionTip')}</p>

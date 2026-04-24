@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const p=JSON.parse\\(require\\('fs'\\).readFileSync\\('/dev/stdin'\\)\\); console.log\\('version:', p.version, 'main:', p.main, 'type:', p.type\\)\")"
+    ]
+  }
+}

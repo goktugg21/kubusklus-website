@@ -1,11 +1,31 @@
 import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { Resend } from 'resend';
+import { kv } from '@vercel/kv';
 
-// Rate limiting: IP -> array of timestamps (max 5 per hour)
-const rateLimit = new Map<string, number[]>();
-const MAX_REQUESTS = 5;
-const WINDOW_MS = 60 * 60 * 1000; // 60 minutes
+const RATE_LIMIT_WINDOW_SECONDS = 3600;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+
+async function checkRateLimit(ip: string): Promise<{ ok: boolean; retryAfter?: number }> {
+  if (!ip || ip === 'unknown') return { ok: true };
+
+  const key = `ratelimit:quote:${ip}`;
+
+  try {
+    const count = await kv.incr(key);
+    if (count === 1) {
+      await kv.expire(key, RATE_LIMIT_WINDOW_SECONDS);
+    }
+    if (count > RATE_LIMIT_MAX_REQUESTS) {
+      const ttl = await kv.ttl(key);
+      return { ok: false, retryAfter: Math.max(ttl, 60) };
+    }
+    return { ok: true };
+  } catch (err) {
+    console.error('Rate limit KV error:', err);
+    return { ok: true };
+  }
+}
 
 const ALLOWED_SERVICES = [
   'facades', 'roughcast', 'walls', 'decorative', 'sanding',
@@ -45,28 +65,21 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
     }
 
-    // --- Rate limiting: 5 per hour per IP ---
+    // --- Rate limiting: 5 per hour per IP (Vercel KV / Upstash) ---
     const hdrs = await headers();
     const forwarded = hdrs.get('x-forwarded-for');
     const clientIp = forwarded?.split(',')[0]?.trim() || hdrs.get('x-real-ip') || 'unknown';
-    const now = Date.now();
 
-    const timestamps = rateLimit.get(clientIp) || [];
-    const recent = timestamps.filter((t) => now - t < WINDOW_MS);
-
-    if (recent.length >= MAX_REQUESTS) {
+    const rl = await checkRateLimit(clientIp);
+    if (!rl.ok) {
       const nl = body.locale === 'nl';
       return NextResponse.json(
         { error: nl ? 'Te veel verzoeken. Probeer het later opnieuw.' : 'Too many requests. Please try again later.' },
-        { status: 429 },
+        {
+          status: 429,
+          headers: rl.retryAfter ? { 'Retry-After': String(rl.retryAfter) } : undefined,
+        },
       );
-    }
-
-    // --- Cleanup expired rate limit entries ---
-    for (const [ip, ts] of rateLimit.entries()) {
-      const valid = ts.filter((t: number) => now - t < WINDOW_MS);
-      if (valid.length === 0) rateLimit.delete(ip);
-      else rateLimit.set(ip, valid);
     }
 
     // --- API key check ---
@@ -140,10 +153,6 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: msg.futureDate }, { status: 400 });
       }
     }
-
-    // --- All checks passed, record rate limit ---
-    recent.push(now);
-    rateLimit.set(clientIp, recent);
 
     const resend = new Resend(apiKey);
     const serviceLabel = SERVICE_LABELS[service] ?? service;

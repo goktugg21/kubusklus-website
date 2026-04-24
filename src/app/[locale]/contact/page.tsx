@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 
-export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Neem contact op met Kubusklus. Rhoneweg 26H, 1043 AH Amsterdam. Bel 06 44 33 11 91 of WhatsApp.',
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.contact' });
+  return { title: t('title'), description: t('description') };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;

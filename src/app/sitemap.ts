@@ -1,34 +1,23 @@
 import type { MetadataRoute } from 'next';
 
 const BASE_URL = 'https://kubusklus.nl';
+const BUILD_TIME = new Date('2026-04-24');
 
-const routes = [
-  '',
-  '/diensten',
-  '/projecten',
-  '/werkwijze',
-  '/faq',
-  '/over-ons',
-  '/contact',
-  '/offerte',
-  '/privacy',
-];
-
-const locales = ['nl', 'en'];
+const ROUTES = ['', '/diensten', '/projecten', '/over-ons', '/werkwijze', '/contact', '/faq', '/offerte', '/privacy'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = [];
-
-  for (const locale of locales) {
-    for (const route of routes) {
-      entries.push({
-        url: `${BASE_URL}/${locale}${route}`,
-        lastModified: new Date(),
-        changeFrequency: route === '' ? 'weekly' : 'monthly',
-        priority: route === '' ? 1 : 0.8,
-      });
-    }
-  }
-
-  return entries;
+  return ROUTES.flatMap((route) => {
+    const nl = `${BASE_URL}/nl${route}`;
+    const en = `${BASE_URL}/en${route}`;
+    const entry = {
+      lastModified: BUILD_TIME,
+      changeFrequency: 'monthly' as const,
+      priority: route === '' ? 1.0 : 0.8,
+      alternates: { languages: { nl, en } },
+    };
+    return [
+      { url: nl, ...entry },
+      { url: en, ...entry },
+    ];
+  });
 }

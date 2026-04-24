@@ -110,10 +110,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 border-t border-gray-800 pt-8 text-center">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} Kubus Klussenbedrijf. {t('rights')}
           </p>
-          <p className="mt-1 text-xs text-gray-600">KvK: 34238635</p>
+          <p className="mt-1 text-xs text-gray-400">KvK: 34238635</p>
         </div>
       </div>
     </footer>

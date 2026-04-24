@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import HowWeWork from '@/components/home/HowWeWork';
 import { Link } from '@/i18n/routing';
 
-export const metadata: Metadata = {
-  title: 'Werkwijze',
-  description: 'Hoe Kubusklus werkt: gratis offerte, vakwerk met A-kwaliteit materialen, en oplevering met garantie.',
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.werkwijze' });
+  return { title: t('title'), description: t('description') };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;
