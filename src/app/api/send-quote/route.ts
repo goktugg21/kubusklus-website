@@ -72,6 +72,7 @@ export async function POST(request: Request) {
     // --- API key check ---
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey || apiKey === 're_placeholder_key') {
+      console.error('Email service not configured: RESEND_API_KEY is missing or set to placeholder');
       return NextResponse.json(
         { error: 'Email service not configured. Please contact us via phone or WhatsApp.' },
         { status: 503 },
@@ -112,10 +113,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: msg.invalidEmail }, { status: 400 });
     }
 
-    // --- Validate phone: 8-15 digits ---
-    const digitsOnly = phone.replace(/\D/g, '');
-    if (digitsOnly.length < 8 || digitsOnly.length > 15) {
-      return NextResponse.json({ error: msg.phoneBadLength }, { status: 400 });
+    // --- Validate phone: optional, but if provided must be 8-15 digits ---
+    if (phone) {
+      const digitsOnly = phone.replace(/\D/g, '');
+      if (digitsOnly.length < 8 || digitsOnly.length > 15) {
+        return NextResponse.json({ error: msg.phoneBadLength }, { status: 400 });
+      }
     }
 
     // --- Validate service ---
@@ -144,6 +147,7 @@ export async function POST(request: Request) {
 
     const resend = new Resend(apiKey);
     const serviceLabel = SERVICE_LABELS[service] ?? service;
+    const phoneMissingLabel = nl ? '(niet opgegeven)' : '(not provided)';
 
     const htmlBody = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -165,7 +169,9 @@ export async function POST(request: Request) {
             <tr>
               <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; font-weight: bold; color: #374151;">Telefoon</td>
               <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; color: #4b5563;">
-                <a href="tel:${escapeHtml(phone)}" style="color: #DC2626;">${escapeHtml(phone)}</a>
+                ${phone
+                  ? `<a href="tel:${escapeHtml(phone)}" style="color: #DC2626;">${escapeHtml(phone)}</a>`
+                  : `<span style="color: #9ca3af; font-style: italic;">${escapeHtml(phoneMissingLabel)}</span>`}
               </td>
             </tr>
             <tr>

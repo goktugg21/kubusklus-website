@@ -9,7 +9,7 @@ export default function EmergencyBar() {
         <span className="font-semibold text-orange-500">{t('label')}</span>
         <span className="text-gray-400">|</span>
         <a
-          href="tel:+31621265372"
+          href="tel:+31644331191"
           className="font-medium hover:text-orange-500 transition-colors"
         >
           {t('phone')}

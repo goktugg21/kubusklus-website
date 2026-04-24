@@ -8,17 +8,16 @@ export default function Hero() {
     <section className="relative min-h-[90vh] flex items-center">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-cover"
+        className="absolute inset-0 bg-cover bg-no-repeat bg-position-[85%_center] sm:bg-position-[center_80%]"
         style={{
-          backgroundImage: 'url(/images/projects/hero-bathroom.jpg)',
-          backgroundPosition: 'center 20%',
+          backgroundImage: 'url(/images/projects/hero-renovatie.jpg)',
         }}
       />
       {/* Dark gradient overlay — left-to-right, 0.92 to 0.5 opacity */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0F1115]/[0.95] via-[#0F1115]/80 via-55% to-[#0F1115]/20" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-48 sm:pb-24">
         <div className="max-w-2xl">
           {/* Eyebrow */}
           <p className="text-sm font-semibold uppercase tracking-widest text-red-600">

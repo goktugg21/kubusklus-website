@@ -26,12 +26,12 @@ const iconPaths = {
 const services = [
   { key: 'facades', anchor: 'buitengevels', image: '/images/projects/buitengevels-facade.jpg', icon: iconPaths.building },
   { key: 'roughcast', anchor: 'raapwerk', image: '/images/projects/raapwerk-plastering.jpg', icon: iconPaths.layers },
-  { key: 'walls', anchor: 'wanden-en-plafond', image: '/images/projects/tussenwanden-ceiling.jpg', icon: iconPaths.squares },
-  { key: 'decorative', anchor: 'sier-en-pleisterwerk', image: '/images/projects/raapwerk-plastering.jpg', icon: iconPaths.sparkle },
-  { key: 'sanding', anchor: 'schuurwerk', image: '/images/projects/buitengevels-facade.jpg', icon: iconPaths.sand },
+  { key: 'walls', anchor: 'wanden-en-plafond', image: '/images/projects/wanden-plafond-afgewerkt.jpg', icon: iconPaths.squares, imagePosition: 'center bottom' },
+  { key: 'decorative', anchor: 'sier-en-pleisterwerk', image: '/images/projects/sier-pleisterwerk.jpg', icon: iconPaths.sparkle, imagePosition: 'right bottom' },
+  { key: 'sanding', anchor: 'schuurwerk', image: '/images/projects/schuurwerk-actie.jpg', icon: iconPaths.sand, imagePosition: 'center 25%' },
   { key: 'painting', anchor: 'schilderwerk', image: '/images/projects/sigma-paint.jpg', icon: iconPaths.paint },
-  { key: 'tiles', anchor: 'tegels-plaatsen', image: '/images/projects/tegels-marble-bath.jpg', icon: iconPaths.squares },
-  { key: 'parquet', anchor: 'parket-neerleggen', image: 'https://plus.unsplash.com/premium_photo-1683134399397-2407679051f7?w=800&q=80&auto=format&fit=crop', icon: iconPaths.floor },
+  { key: 'tiles', anchor: 'tegels-plaatsen', image: '/images/projects/tegels-leggen.jpg', icon: iconPaths.squares },
+  { key: 'parquet', anchor: 'parket-neerleggen', image: '/images/projects/parket-werk.jpg', icon: iconPaths.floor },
   { key: 'partitions', anchor: 'tussenwanden-plaatsen', image: '/images/projects/tussenwanden-ceiling.jpg', icon: iconPaths.wall },
 ];
 
@@ -99,8 +99,11 @@ function ServiceContent() {
               {/* Image */}
               <div className={idx % 2 === 1 ? 'lg:order-1' : ''}>
                 <div
-                  className="aspect-[4/3] rounded-2xl bg-cover bg-center"
-                  style={{ backgroundImage: `url(${service.image})` }}
+                  className="aspect-[4/3] rounded-2xl bg-cover"
+                  style={{
+                    backgroundImage: `url(${service.image})`,
+                    backgroundPosition: service.imagePosition ?? 'center',
+                  }}
                 />
               </div>
             </div>

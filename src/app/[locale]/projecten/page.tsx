@@ -4,15 +4,15 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 const allProjects = [
-  { image: '/images/projects/project-luxury-bathroom.jpg', category: 'stucco', titleKey: 'p1' },
+  { image: '/images/projects/project-luxury-bathroom.jpg', category: 'tiles', titleKey: 'p1' },
   { image: '/images/projects/project-modern-bathroom.jpg', category: 'tiles', titleKey: 'p2' },
   { image: '/images/projects/tegels-marble-bath.jpg', category: 'tiles', titleKey: 'p3' },
-  { image: '/images/projects/project-decorative-floor.jpg', category: 'tiles', titleKey: 'p4' },
-  { image: '/images/projects/buitengevels-facade.jpg', category: 'stucco', titleKey: 'p5' },
-  { image: '/images/projects/sigma-paint.jpg', category: 'painting', titleKey: 'p6' },
+  { image: '/images/projects/project-plafond-renovatie.jpg', category: 'stucco', titleKey: 'p4' },
+  { image: '/images/projects/project-puiopening.jpg', category: 'stucco', titleKey: 'p5' },
+  { image: '/images/projects/project-vloer-vernieuwing.jpg', category: 'tiles', titleKey: 'p6' },
 ];
 
-const categories = ['all', 'stucco', 'tiles', 'painting'] as const;
+const categories = ['all', 'stucco', 'tiles'] as const;
 
 export default function ProjectenPage() {
   const t = useTranslations('ProjectenPage');

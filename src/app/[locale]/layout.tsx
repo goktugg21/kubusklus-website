@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: 'Kubusklus',
     images: [
       {
-        url: '/images/projects/hero-bathroom.jpg',
+        url: '/images/projects/hero-renovatie.jpg',
         width: 1200,
         height: 630,
       },
@@ -84,9 +84,9 @@ export default async function LocaleLayout({ children, params }: Props) {
               priceRange: '$$',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: 'Delflandplein 160',
+                streetAddress: 'Rhoneweg 26H',
                 addressLocality: 'Amsterdam',
-                postalCode: '1062 HW',
+                postalCode: '1043 AH',
                 addressCountry: 'NL',
               },
               geo: {
