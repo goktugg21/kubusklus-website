@@ -1,8 +1,49 @@
 {
-  "CookieBanner": {
-    "message": "Deze website gebruikt alleen functionele cookies voor een goede werking.",
-    "link": "Privacybeleid",
-    "accept": "Akkoord"
+  "Metadata": {
+    "siteName": "Kubusklus",
+    "home": {
+      "title": "Kubusklus — Stukadoor, Tegelwerk & Schilderwerk Amsterdam",
+      "description": "Vakkundig stukadoor, tegelwerk en schilderwerk in Amsterdam. Sinds 2006. Wij beweren niet, wij bewijzen het. Vraag een gratis offerte aan.",
+      "ogDescription": "Uw betrouwbare onderaannemer in Amsterdam. Sinds 2006.",
+      "ogImageAlt": "Kubusklus vakman aan het werk in Amsterdam"
+    },
+    "diensten": {
+      "title": "Diensten",
+      "description": "Alle diensten van Kubusklus: buitengevels, raapwerk, wanden, sier- en pleisterwerk, schuurwerk, schilderwerk, tegels, parket en tussenwanden in Amsterdam."
+    },
+    "projecten": {
+      "title": "Projecten",
+      "description": "Bekijk onze recente projecten in Amsterdam: stukwerk, tegelwerk, badkamerrenovaties en meer."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Neem contact op met Kubusklus. Rhoneweg 26H, 1043 AH Amsterdam. Bel 06 44 33 11 91 of WhatsApp voor een vrijblijvende offerte."
+    },
+    "overOns": {
+      "title": "Over Ons",
+      "description": "Kubus Klussenbedrijf — sinds 2006 vakmanschap in Amsterdam. Meer dan 20 jaar ervaring, 500+ projecten."
+    },
+    "werkwijze": {
+      "title": "Werkwijze",
+      "description": "Hoe Kubusklus werkt: van eerste contact tot oplevering — een helder en transparant proces in drie stappen."
+    },
+    "faq": {
+      "title": "Veelgestelde Vragen",
+      "description": "Antwoorden op veelgestelde vragen over Kubusklus' diensten, offertes en werkwijze."
+    },
+    "offerte": {
+      "title": "Gratis Offerte Aanvragen",
+      "description": "Vraag een gratis, vrijblijvende offerte aan bij Kubusklus. Reactie binnen 24 uur. Vakwerk in Amsterdam sinds 2006."
+    },
+    "privacy": {
+      "title": "Privacybeleid",
+      "description": "Privacybeleid van Kubusklus. Hoe wij omgaan met uw gegevens."
+    }
+  },
+  "Common": {
+    "whatsappAria": "Chat via WhatsApp",
+    "switchToEN": "Schakel naar Engels",
+    "switchToNL": "Schakel naar Nederlands"
   },
   "EmergencyBar": {
     "label": "24/7 Spoedservice",
@@ -15,7 +56,8 @@
     "about": "Over Ons",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Gratis Offerte"
+    "cta": "Gratis Offerte",
+    "toggleMenu": "Menu openen of sluiten"
   },
   "Hero": {
     "eyebrow": "AMSTERDAM & RANDSTAD",
@@ -62,6 +104,7 @@
     "title": "Recente Projecten",
     "subtitle": "Bekijk onze meest recente projecten en ontdek de kwaliteit van ons vakmanschap.",
     "viewAll": "Bekijk Alle Projecten",
+    "city": "Amsterdam",
     "categories": {
       "stucco": "Stukadoorswerk",
       "tiles": "Tegelwerk",
@@ -254,6 +297,7 @@
     "eyebrow": "Ons Portfolio",
     "title": "Onze Projecten",
     "subtitle": "Bekijk een selectie van onze meest recente projecten in Amsterdam en omstreken.",
+    "closeLightbox": "Sluit foto",
     "filters": {
       "all": "Alle",
       "stucco": "Stukadoorswerk",
@@ -329,7 +373,7 @@
     },
     "cookies": {
       "title": "5. Cookies",
-      "body": "Onze website gebruikt alleen functionele cookies die noodzakelijk zijn voor het correct functioneren van de website. Wij gebruiken geen tracking- of marketingcookies."
+      "body": "Onze website gebruikt uitsluitend één strikt noodzakelijke cookie (NEXT_LOCALE) om uw taalkeuze te onthouden. Wij gebruiken geen analytics-, tracking- of marketingcookies."
     },
     "rights": {
       "title": "6. Uw rechten",
@@ -339,6 +383,12 @@
       "title": "7. Contact",
       "body": "Heeft u vragen over ons privacybeleid? Neem dan contact op via info@kubusklus.nl of bel 020 - 364 24 20."
     }
+  },
+  "NotFound": {
+    "title": "Pagina niet gevonden",
+    "description": "De pagina die u zoekt bestaat niet of is verplaatst. Controleer de URL of ga terug naar de homepagina.",
+    "backHome": "Terug naar homepagina",
+    "contact": "Contact opnemen"
   },
   "OffertePage": {
     "eyebrow": "Gratis & Vrijblijvend",

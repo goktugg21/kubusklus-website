@@ -1,12 +1,15 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 export default function WhatsAppButton() {
+  const t = useTranslations('Common');
   return (
     <a
       href="https://wa.me/31644331191"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat via WhatsApp"
+      aria-label={t('whatsappAria')}
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all"
     >
       <svg className="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">

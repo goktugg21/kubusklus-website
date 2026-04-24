@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 
-export const metadata: Metadata = {
-  title: 'Over Ons',
-  description: 'Kubus Klussenbedrijf — sinds 2006 vakmanschap in Amsterdam. Meer dan 20 jaar ervaring, 500+ projecten.',
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.overOns' });
+  return { title: t('title'), description: t('description') };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;

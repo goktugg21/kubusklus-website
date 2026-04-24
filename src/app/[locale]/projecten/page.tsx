@@ -17,7 +17,7 @@ const categories = ['all', 'stucco', 'tiles'] as const;
 export default function ProjectenPage() {
   const t = useTranslations('ProjectenPage');
   const [active, setActive] = useState<string>('all');
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<{ image: string; alt: string } | null>(null);
 
   const filtered = active === 'all'
     ? allProjects
@@ -67,7 +67,7 @@ export default function ProjectenPage() {
               <button
                 key={project.titleKey}
                 type="button"
-                onClick={() => setLightbox(project.image.replace('w=600', 'w=1600'))}
+                onClick={() => setLightbox({ image: project.image, alt: t(`projects.${project.titleKey}`) })}
                 className="group relative overflow-hidden rounded-2xl aspect-[4/3] text-left cursor-pointer"
               >
                 <div
@@ -100,7 +100,7 @@ export default function ProjectenPage() {
             type="button"
             onClick={() => setLightbox(null)}
             className="absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
-            aria-label="Close"
+            aria-label={t('closeLightbox')}
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -108,8 +108,8 @@ export default function ProjectenPage() {
           </button>
           {/* Image */}
           <img
-            src={lightbox}
-            alt="Project foto"
+            src={lightbox.image}
+            alt={lightbox.alt}
             className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain"
             onClick={(e) => e.stopPropagation()}
           />

@@ -16,6 +16,7 @@ export default function FAQ() {
 
   function renderItem(key: string) {
     const isOpen = openKey === key;
+    const panelId = `faq-answer-${key}`;
     return (
       <div
         key={key}
@@ -23,31 +24,35 @@ export default function FAQ() {
           isOpen ? 'border-l-4 border-red-600' : 'border-l-4 border-transparent'
         }`}
       >
-        <button
-          type="button"
-          onClick={() => toggle(key)}
-          className="flex w-full items-center justify-between text-left"
-        >
-          <span className="text-base font-semibold text-gray-900 pr-4">
-            {t(`${key}.question`)}
-          </span>
-          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-500">
-            {isOpen ? (
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-              </svg>
-            ) : (
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-            )}
-          </span>
-        </button>
-        {isOpen && (
+        <h3 className="text-base font-semibold text-gray-900">
+          <button
+            type="button"
+            onClick={() => toggle(key)}
+            aria-expanded={isOpen}
+            aria-controls={panelId}
+            className="flex w-full items-center justify-between text-left"
+          >
+            <span className="pr-4">
+              {t(`${key}.question`)}
+            </span>
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-500">
+              {isOpen ? (
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                </svg>
+              ) : (
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              )}
+            </span>
+          </button>
+        </h3>
+        <div id={panelId} role="region" hidden={!isOpen}>
           <p className="mt-4 text-sm leading-6 text-gray-600">
             {t(`${key}.answer`)}
           </p>
-        )}
+        </div>
       </div>
     );
   }

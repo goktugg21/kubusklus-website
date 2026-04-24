@@ -59,7 +59,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
               className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 transition-colors"
-              aria-label="Toggle menu"
+              aria-label={t('toggleMenu')}
             >
               {mobileOpen ? (
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">

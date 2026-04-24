@@ -59,7 +59,7 @@ export default function PortfolioPreview() {
                 <h3 className="mt-2 text-xl font-bold text-white font-[family-name:var(--font-heading)]">
                   {t(`projects.${project.categoryKey}`)}
                 </h3>
-                <p className="mt-1 text-sm text-gray-300">Amsterdam</p>
+                <p className="mt-1 text-sm text-gray-300">{t('city')}</p>
               </div>
             </Link>
           ))}

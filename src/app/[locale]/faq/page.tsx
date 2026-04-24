@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import FAQ from '@/components/home/FAQ';
 import { Link } from '@/i18n/routing';
 
-export const metadata: Metadata = {
-  title: 'FAQ',
-  description: 'Veelgestelde vragen over Kubusklus. Offerte, betaling, garantie, materialen en meer.',
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.faq' });
+  return { title: t('title'), description: t('description') };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;
