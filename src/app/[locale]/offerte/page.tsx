@@ -220,22 +220,22 @@ function OfferteForm() {
               />
             </div>
 
-            {/* Phone */}
+            {/* Phone (optional) */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-900">
-                {t('phone')} <span className="text-red-600">*</span>
+                {t('phoneOptional')}
               </label>
               <input
                 id="phone"
                 name="phone"
                 type="tel"
-                required
                 disabled={isSending}
                 className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder={t('phonePlaceholder')}
                 value={phone}
                 onChange={(e) => setPhone(formatPhone(e.target.value))}
               />
+              <p className="mt-1 text-xs text-gray-500">{t('phoneHint')}</p>
             </div>
 
             {/* Service type — all 9 + other */}

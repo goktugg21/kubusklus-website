@@ -1,0 +1,5 @@
+node_modules
+.next
+.vercel
+public/images/currently_not_using
+public/images/use_maybe_later

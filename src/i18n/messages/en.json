@@ -6,7 +6,7 @@
   },
   "EmergencyBar": {
     "label": "24/7 Emergency Service",
-    "phone": "06 212 65 372"
+    "phone": "06 44 33 11 91"
   },
   "Navbar": {
     "services": "Services",
@@ -69,8 +69,8 @@
       "decorative": "Decorative"
     },
     "projects": {
-      "stucco": "Luxury Bathroom Renovation",
-      "tiles": "Modern Bathroom",
+      "stucco": "Interior Plastering",
+      "tiles": "Bathroom Tiling",
       "painting": "Office Building Painting Zuidas",
       "decorative": "Decorative Tilework"
     }
@@ -257,16 +257,15 @@
     "filters": {
       "all": "All",
       "stucco": "Plastering",
-      "tiles": "Tiling",
-      "painting": "Painting"
+      "tiles": "Tiling"
     },
     "projects": {
       "p1": "Luxury Bathroom Renovation",
       "p2": "Modern Bathroom",
       "p3": "Marble Bathroom",
-      "p4": "Decorative Tilework",
-      "p5": "Facade Renovation",
-      "p6": "Painting Project"
+      "p4": "Ceiling Renovation",
+      "p5": "Patio Door & Wall Opening",
+      "p6": "Floor Renewal"
     }
   },
   "FAQPage": {
@@ -306,7 +305,8 @@
     "hoursValue": "Mon–Fri: 07:00 – 18:00",
     "hoursEmergency": "24/7 Emergency Service available",
     "quoteCta": "Or request a free quote directly",
-    "quoteButton": "Request a Free Quote"
+    "quoteButton": "Request a Free Quote",
+    "openInMaps": "Open in Maps"
   },
   "PrivacyPage": {
     "title": "Privacy Policy",
@@ -349,6 +349,8 @@
     "email": "Email address",
     "emailPlaceholder": "your@email.com",
     "phone": "Phone number",
+    "phoneOptional": "Phone number (optional)",
+    "phoneHint": "Prefer a call back? Add your number as well.",
     "phonePlaceholder": "+31 6 ...",
     "service": "Service type",
     "servicePlaceholder": "Select a service",
@@ -375,7 +377,7 @@
     "errorGeneric": "Something went wrong. Please try again or contact us by phone.",
     "backHome": "Back to homepage",
     "successTitle": "Thank you!",
-    "successHeading": "Your request has been received",
-    "successMessage": "We'll contact you within 24 hours to discuss your project. For urgent questions, call us at 06 212 65 372."
+    "successHeading": "Thank you for your request!",
+    "successMessage": "We'll get back to you within 24 hours with a free, no-obligation quote."
   }
 }

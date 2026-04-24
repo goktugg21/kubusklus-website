@@ -3,11 +3,11 @@ import { useTranslations } from 'next-intl';
 
 const projects = [
   {
-    image: '/images/projects/project-luxury-bathroom.jpg',
+    image: '/images/projects/portfolio-stucwerk.jpg',
     categoryKey: 'stucco',
   },
   {
-    image: '/images/projects/project-modern-bathroom.jpg',
+    image: '/images/projects/portfolio-tegelwerk.jpg',
     categoryKey: 'tiles',
   },
   {

@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Unused photo archive — too big for git, kept locally only
+/public/images/currently_not_using/

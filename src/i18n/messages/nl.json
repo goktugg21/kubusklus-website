@@ -6,7 +6,7 @@
   },
   "EmergencyBar": {
     "label": "24/7 Spoedservice",
-    "phone": "06 212 65 372"
+    "phone": "06 44 33 11 91"
   },
   "Navbar": {
     "services": "Diensten",
@@ -69,8 +69,8 @@
       "decorative": "Decoratief"
     },
     "projects": {
-      "stucco": "Luxe Badkamer Renovatie",
-      "tiles": "Moderne Badkamer",
+      "stucco": "Stukwerk Interieur",
+      "tiles": "Badkamer Tegelwerk",
       "painting": "Kantoorpand Schilderwerk Zuidas",
       "decorative": "Decoratief Tegelwerk"
     }
@@ -257,16 +257,15 @@
     "filters": {
       "all": "Alle",
       "stucco": "Stukadoorswerk",
-      "tiles": "Tegelwerk",
-      "painting": "Schilderwerk"
+      "tiles": "Tegelwerk"
     },
     "projects": {
       "p1": "Luxe Badkamer Renovatie",
       "p2": "Moderne Badkamer",
       "p3": "Marmer Badkamer",
-      "p4": "Decoratief Tegelwerk",
-      "p5": "Gevel Renovatie",
-      "p6": "Schilderwerk Project"
+      "p4": "Plafond Renovatie",
+      "p5": "Pui & Wandopening",
+      "p6": "Vloer Vernieuwing"
     }
   },
   "FAQPage": {
@@ -306,7 +305,8 @@
     "hoursValue": "Ma–Vr: 07:00 – 18:00",
     "hoursEmergency": "24/7 Spoedservice beschikbaar",
     "quoteCta": "Of vraag direct een gratis offerte aan",
-    "quoteButton": "Gratis Offerte Aanvragen"
+    "quoteButton": "Gratis Offerte Aanvragen",
+    "openInMaps": "Open in Maps"
   },
   "PrivacyPage": {
     "title": "Privacybeleid",
@@ -349,6 +349,8 @@
     "email": "E-mailadres",
     "emailPlaceholder": "uw@email.nl",
     "phone": "Telefoonnummer",
+    "phoneOptional": "Telefoonnummer (optioneel)",
+    "phoneHint": "Bellen wij u liever? Vul ook uw nummer in.",
     "phonePlaceholder": "+31 6 ...",
     "service": "Type dienst",
     "servicePlaceholder": "Selecteer een dienst",
@@ -375,7 +377,7 @@
     "errorGeneric": "Er is iets misgegaan. Probeer het opnieuw of neem telefonisch contact met ons op.",
     "backHome": "Terug naar homepagina",
     "successTitle": "Bedankt!",
-    "successHeading": "Uw aanvraag is ontvangen",
-    "successMessage": "Wij nemen binnen 24 uur contact met u op om uw project te bespreken. Voor spoedvragen kunt u ons bellen op 06 212 65 372."
+    "successHeading": "Bedankt voor uw aanvraag!",
+    "successMessage": "Wij nemen binnen 24 uur contact met u op voor een vrijblijvende offerte."
   }
 }

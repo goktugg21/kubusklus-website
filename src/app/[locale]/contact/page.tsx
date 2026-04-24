@@ -5,7 +5,7 @@ import { Link } from '@/i18n/routing';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Neem contact op met Kubusklus. Delflandplein 160, Amsterdam. Bel 020-364 24 20 of WhatsApp 06 212 65 372.',
+  description: 'Neem contact op met Kubusklus. Rhoneweg 26H, 1043 AH Amsterdam. Bel 06 44 33 11 91 of WhatsApp.',
 };
 
 type Props = {
@@ -51,14 +51,14 @@ function ContactContent() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-900">{t('phoneLabel')}</p>
-                    <a href="tel:+31203642420" className="text-sm text-gray-600 hover:text-red-600 transition-colors block">
-                      020 - 364 24 20
+                    <a href="tel:+31644331191" className="text-sm text-gray-600 hover:text-red-600 transition-colors block">
+                      06 44 33 11 91
                     </a>
                     <a href="tel:+31621265372" className="text-sm text-gray-600 hover:text-red-600 transition-colors block">
-                      06 212 65 372
+                      06 21 26 53 72
                     </a>
-                    <a href="tel:+31644331191" className="text-sm text-gray-600 hover:text-red-600 transition-colors block">
-                      06 443 31 191
+                    <a href="tel:+31203642420" className="text-sm text-gray-600 hover:text-red-600 transition-colors block">
+                      020 - 364 24 20
                     </a>
                   </div>
                 </div>
@@ -86,7 +86,7 @@ function ContactContent() {
                   <div>
                     <p className="text-sm font-semibold text-gray-900">WhatsApp</p>
                     <a
-                      href="https://wa.me/31621265372"
+                      href="https://wa.me/31644331191"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-gray-600 hover:text-red-600 transition-colors"
@@ -105,7 +105,7 @@ function ContactContent() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-900">{t('addressLabel')}</p>
-                    <p className="text-sm text-gray-600">Delflandplein 160<br />1062 HW Amsterdam</p>
+                    <p className="text-sm text-gray-600">Rhoneweg 26H<br />1043 AH Amsterdam</p>
                   </div>
                 </div>
                 {/* Working hours */}
@@ -140,8 +140,8 @@ function ContactContent() {
             {/* Google Maps embed */}
             <div className="overflow-hidden rounded-2xl">
               <iframe
-                title="Kubusklus Amsterdam"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.5!2d4.8147!3d52.3456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609f38e0e5b3d%3A0x0!2sDelflandplein+160%2C+1062+HW+Amsterdam!5e0!3m2!1snl!2snl!4v1"
+                title="Kubus Klussenbedrijf - Rhoneweg 26H, 1043 AH Amsterdam"
+                src="https://www.google.com/maps?q=Rhoneweg+26H+1043+AH+Amsterdam&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: 500 }}
