@@ -10,7 +10,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-no-repeat bg-position-[85%_center] sm:bg-position-[center_80%]"
         style={{
-          backgroundImage: 'url(/images/projects/hero-renovatie.jpg)',
+          backgroundImage: 'url(/images/projects/hero-renovatie.webp)',
         }}
       />
       {/* Dark gradient overlay — left-to-right, 0.92 to 0.5 opacity */}
