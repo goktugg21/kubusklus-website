@@ -103,6 +103,12 @@ export async function POST(request: Request) {
     if (loadedAt && !Number.isNaN(loadedAt)) {
       const elapsedMs = Date.now() - loadedAt;
       if (elapsedMs < 3000) {
+        // Anonymized IP for GDPR — drop the last octet on IPv4, keep /64 on IPv6
+        const ipMasked = clientIp.includes('.')
+          ? clientIp.split('.').slice(0, 3).concat(['0']).join('.')
+          : clientIp.split(':').slice(0, 4).join(':') + '::';
+        const ua = hdrs.get('user-agent')?.slice(0, 120) || 'unknown';
+        console.log('[bot-gate-hit]', JSON.stringify({ elapsedMs, ipMasked, ua }));
         // Silent success — don't reveal the trap.
         return NextResponse.json({ success: true });
       }
