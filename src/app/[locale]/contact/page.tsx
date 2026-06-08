@@ -107,7 +107,7 @@ function ContactContent() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-900">{t('addressLabel')}</p>
-                    <p className="text-sm text-gray-600">Rhoneweg 26H<br />1043 AH Amsterdam</p>
+                    <p className="text-sm text-gray-600">Kapoeasweg 21<br />1043 AD Amsterdam</p>
                   </div>
                 </div>
                 {/* Working hours */}
@@ -142,8 +142,8 @@ function ContactContent() {
             {/* Google Maps embed */}
             <div className="overflow-hidden rounded-2xl">
               <iframe
-                title="Kubus Klussenbedrijf - Rhoneweg 26H, 1043 AH Amsterdam"
-                src="https://www.google.com/maps?q=Rhoneweg+26H+1043+AH+Amsterdam&output=embed"
+                title="Kubus Klussenbedrijf - Kapoeasweg 21, 1043 AD Amsterdam"
+                src="https://www.google.com/maps?q=Kapoeasweg+21+1043+AD+Amsterdam&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: 500 }}
