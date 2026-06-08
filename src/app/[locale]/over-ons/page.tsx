@@ -14,11 +14,12 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const certificates = [
-  { name: 'VCA', color: 'bg-blue-100 text-blue-800' },
-  { name: 'BouwGarant', color: 'bg-green-100 text-green-800' },
-  { name: 'Sigma Certified', color: 'bg-red-100 text-red-800' },
-];
+// Kept for when the real certificate logos arrive.
+// const certificates = [
+//   { name: 'VCA', color: 'bg-blue-100 text-blue-800' },
+//   { name: 'BouwGarant', color: 'bg-green-100 text-green-800' },
+//   { name: 'Sigma Certified', color: 'bg-red-100 text-red-800' },
+// ];
 
 function AboutContent() {
   const t = useTranslations('AboutPage');
@@ -76,7 +77,7 @@ function AboutContent() {
         </div>
       </section>
 
-      {/* Certificates */}
+      {/* Certificates: hidden until real logos arrive. Uncomment to restore.
       <section className="bg-gray-50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 font-[family-name:var(--font-heading)]">
@@ -100,6 +101,7 @@ function AboutContent() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Service area */}
       <section className="bg-white py-20">

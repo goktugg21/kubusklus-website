@@ -2,8 +2,8 @@
   "Metadata": {
     "siteName": "Kubusklus",
     "home": {
-      "title": "Kubusklus — Plastering, Tiling & Painting in Amsterdam",
-      "description": "Expert plastering, tiling and painting services in Amsterdam since 2006. We don't claim it — we prove it. Request a free quote today.",
+      "title": "Kubusklus: Plastering, Tiling & Painting in Amsterdam",
+      "description": "Expert plastering, tiling and painting services in Amsterdam since 2006. We don't claim it. We prove it. Request a free quote today.",
       "ogDescription": "Your reliable subcontractor in Amsterdam. Since 2006.",
       "ogImageAlt": "Kubusklus craftsman at work in Amsterdam"
     },
@@ -21,11 +21,11 @@
     },
     "overOns": {
       "title": "About Us",
-      "description": "Kubus Construction & Maintenance — craftsmanship in Amsterdam since 2006. Over 20 years of experience and 500+ completed projects."
+      "description": "Kubus Construction & Maintenance, craftsmanship in Amsterdam since 2006. Over 20 years of experience and 500+ completed projects."
     },
     "werkwijze": {
       "title": "How We Work",
-      "description": "How Kubusklus works: from first contact to delivery — a clear, transparent three-step process."
+      "description": "How Kubusklus works: from first contact to delivery, a clear, transparent three-step process."
     },
     "faq": {
       "title": "FAQ",
@@ -79,7 +79,7 @@
   "Services": {
     "eyebrow": "Our Services",
     "title": "What We Do",
-    "subtitle": "From plastering to painting — we deliver craftsmanship for every project.",
+    "subtitle": "From plastering to painting: we deliver craftsmanship for every project.",
     "learnMore": "Learn more",
     "viewAll": "View all services",
     "facades": {
@@ -121,7 +121,7 @@
   "HowWeWork": {
     "eyebrow": "Our Process",
     "title": "How We Work",
-    "subtitle": "From first contact to delivery — a clear and transparent process.",
+    "subtitle": "From first contact to delivery. A clear and transparent process.",
     "step1": {
       "title": "Free Quote",
       "description": "Get in touch for a no-obligation quote. We discuss your needs and inspect the location."
@@ -209,7 +209,7 @@
   "DienstenPage": {
     "eyebrow": "Our Services",
     "title": "What We Do For You",
-    "subtitle": "Professional craftsmanship for every project — from plastering to parquet flooring.",
+    "subtitle": "Professional craftsmanship for every project, from plastering to parquet flooring.",
     "cta": "Request a Quote",
     "facades": {
       "title": "Exterior Facades",
@@ -231,7 +231,7 @@
     },
     "walls": {
       "title": "Walls and Ceilings",
-      "description": "Complete wall and ceiling finishing for new builds and renovations. From plastering to textured finishes — always a clean, professional result.",
+      "description": "Complete wall and ceiling finishing for new builds and renovations. From plastering to textured finishes. Always a clean, professional result.",
       "features": {
         "0": "Smooth wall plastering",
         "1": "Ceiling finishing and repair",
@@ -276,7 +276,7 @@
     },
     "parquet": {
       "title": "Parquet Flooring",
-      "description": "Professional parquet installation, sanding and finishing. From solid oak to engineered parquet — always a stylish floor.",
+      "description": "Professional parquet installation, sanding and finishing. From solid oak to engineered parquet. Always a stylish floor.",
       "features": {
         "0": "Solid and engineered parquet",
         "1": "Sanding, lacquering and oiling",
