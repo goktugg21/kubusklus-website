@@ -94,9 +94,9 @@ export default async function LocaleLayout({ children, params }: Props) {
               priceRange: '$$',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: 'Rhoneweg 26H',
+                streetAddress: 'Kapoeasweg 21',
                 addressLocality: 'Amsterdam',
-                postalCode: '1043 AH',
+                postalCode: '1043 AD',
                 addressCountry: 'NL',
               },
               geo: {
