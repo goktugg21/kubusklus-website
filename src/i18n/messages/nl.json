@@ -2,7 +2,7 @@
   "Metadata": {
     "siteName": "Kubusklus",
     "home": {
-      "title": "Kubusklus — Stukadoor, Tegelwerk & Schilderwerk Amsterdam",
+      "title": "Kubusklus: Stukadoor, Tegelwerk & Schilderwerk Amsterdam",
       "description": "Vakkundig stukadoor, tegelwerk en schilderwerk in Amsterdam. Sinds 2006. Wij beweren niet, wij bewijzen het. Vraag een gratis offerte aan.",
       "ogDescription": "Uw betrouwbare onderaannemer in Amsterdam. Sinds 2006.",
       "ogImageAlt": "Kubusklus vakman aan het werk in Amsterdam"
@@ -21,11 +21,11 @@
     },
     "overOns": {
       "title": "Over Ons",
-      "description": "Kubus Klussenbedrijf — sinds 2006 vakmanschap in Amsterdam. Meer dan 20 jaar ervaring, 500+ projecten."
+      "description": "Kubus Klussenbedrijf, sinds 2006 vakmanschap in Amsterdam. Meer dan 20 jaar ervaring, 500+ projecten."
     },
     "werkwijze": {
       "title": "Werkwijze",
-      "description": "Hoe Kubusklus werkt: van eerste contact tot oplevering — een helder en transparant proces in drie stappen."
+      "description": "Hoe Kubusklus werkt: van eerste contact tot oplevering, een helder en transparant proces in drie stappen."
     },
     "faq": {
       "title": "Veelgestelde Vragen",
@@ -79,7 +79,7 @@
   "Services": {
     "eyebrow": "Onze Diensten",
     "title": "Wat Wij Doen",
-    "subtitle": "Van stucwerk tot schilderwerk — wij leveren vakmanschap voor elk project.",
+    "subtitle": "Van stucwerk tot schilderwerk: wij leveren vakmanschap voor elk project.",
     "learnMore": "Meer informatie",
     "viewAll": "Bekijk alle diensten",
     "facades": {
@@ -121,7 +121,7 @@
   "HowWeWork": {
     "eyebrow": "Werkwijze",
     "title": "Hoe Wij Werken",
-    "subtitle": "Van eerste contact tot oplevering — een helder en transparant proces.",
+    "subtitle": "Van eerste contact tot oplevering. Een helder en transparant proces.",
     "step1": {
       "title": "Gratis Offerte",
       "description": "Neem contact op voor een vrijblijvende offerte. Wij bespreken uw wensen en doen een inspectie op locatie."
@@ -209,7 +209,7 @@
   "DienstenPage": {
     "eyebrow": "Onze Diensten",
     "title": "Wat Wij Voor U Doen",
-    "subtitle": "Professioneel vakmanschap voor elk project — van stucwerk tot parketvloeren.",
+    "subtitle": "Professioneel vakmanschap voor elk project, van stucwerk tot parketvloeren.",
     "cta": "Offerte Aanvragen",
     "facades": {
       "title": "Buitengevels",
@@ -231,7 +231,7 @@
     },
     "walls": {
       "title": "Wanden en Plafond",
-      "description": "Complete wand- en plafondafwerking voor nieuwbouw en renovatie. Van stucen tot spachtelputz — altijd een strakke, professionele afwerking.",
+      "description": "Complete wand- en plafondafwerking voor nieuwbouw en renovatie. Van stucen tot spachtelputz. Altijd een strakke, professionele afwerking.",
       "features": {
         "0": "Wanden glad stucen",
         "1": "Plafondafwerking en -reparatie",
@@ -276,7 +276,7 @@
     },
     "parquet": {
       "title": "Parket Neerleggen",
-      "description": "Professioneel parket leggen, schuren en lakken. Van massief eiken tot lamelparket — altijd een stijlvolle vloer.",
+      "description": "Professioneel parket leggen, schuren en lakken. Van massief eiken tot lamelparket. Altijd een stijlvolle vloer.",
       "features": {
         "0": "Massief en lamelparket",
         "1": "Schuren, lakken en oliën",
