@@ -249,12 +249,12 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    // kubusklus.nl is not yet verified in Resend, so we must send from
-    // onboarding@resend.dev (Resend's always-verified sender). replyTo carries
-    // the submitter's address so the team can hit Reply and answer directly.
+    // kubusklus.nl is verified in Resend, so we send from info@kubusklus.nl
+    // directly. replyTo carries the submitter's address so the team can hit
+    // Reply in info@kubusklus.nl and answer the customer directly.
     const ownerEmail = process.env.OWNER_EMAIL || 'info@kubusklus.nl';
     const { error } = await resend.emails.send({
-      from: 'Kubusklus <onboarding@resend.dev>',
+      from: 'Kubusklus <info@kubusklus.nl>',
       to: ownerEmail,
       replyTo: email,
       subject: `Nieuwe Offerte Aanvraag - ${serviceLabel} - ${name}`,
