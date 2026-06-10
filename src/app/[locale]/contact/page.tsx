@@ -59,9 +59,6 @@ function ContactContent() {
                     <a href="tel:+31621265372" className="text-sm text-gray-600 hover:text-red-600 transition-colors block">
                       06 21 26 53 72
                     </a>
-                    <a href="tel:+31203642420" className="text-sm text-gray-600 hover:text-red-600 transition-colors block">
-                      020 - 364 24 20
-                    </a>
                   </div>
                 </div>
                 {/* Email */}
@@ -107,7 +104,7 @@ function ContactContent() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-900">{t('addressLabel')}</p>
-                    <p className="text-sm text-gray-600">Kapoeasweg 21<br />1043 AD Amsterdam</p>
+                    <p className="text-sm text-gray-600">Overschiestraat 170-A28<br />1062 XK Amsterdam</p>
                   </div>
                 </div>
                 {/* Working hours */}
@@ -142,8 +139,8 @@ function ContactContent() {
             {/* Google Maps embed */}
             <div className="overflow-hidden rounded-2xl">
               <iframe
-                title="Kubus Klussenbedrijf - Kapoeasweg 21, 1043 AD Amsterdam"
-                src="https://www.google.com/maps?q=Kapoeasweg+21+1043+AD+Amsterdam&output=embed"
+                title="Kubus Klussenbedrijf - Overschiestraat 170-A28, 1062 XK Amsterdam"
+                src="https://www.google.com/maps?q=Overschiestraat+170-A28+1062+XK+Amsterdam&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: 500 }}

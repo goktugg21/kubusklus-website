@@ -86,7 +86,6 @@ export default function Footer() {
                 <div className="text-sm text-gray-400">
                   <a href="tel:+31644331191" className="hover:text-white transition-colors block">06 44 33 11 91</a>
                   <a href="tel:+31621265372" className="hover:text-white transition-colors block">06 21 26 53 72</a>
-                  <a href="tel:+31203642420" className="hover:text-white transition-colors block">020 - 364 24 20</a>
                 </div>
               </li>
               <li className="flex items-start gap-x-3">
@@ -102,7 +101,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                 </svg>
-                <span className="text-sm text-gray-400">Kapoeasweg 21<br />1043 AD Amsterdam</span>
+                <span className="text-sm text-gray-400">Overschiestraat 170-A28<br />1062 XK Amsterdam</span>
               </li>
             </ul>
           </div>

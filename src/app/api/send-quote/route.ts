@@ -224,11 +224,9 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    const ownerEmail = process.env.OWNER_EMAIL || 'info@kubusklus.nl';
-
     const { error } = await resend.emails.send({
       from: 'Kubusklus Website <onboarding@resend.dev>',
-      to: ownerEmail,
+      to: 'info@kubusklus.nl',
       replyTo: email,
       subject: `Nieuwe Offerte Aanvraag - ${serviceLabel} - ${name}`,
       html: htmlBody,
