@@ -88,15 +88,15 @@ export default async function LocaleLayout({ children, params }: Props) {
               alternateName: 'Kubusklus',
               description: 'Vakkundig stukadoor, tegelwerk en schilderwerk in Amsterdam. Sinds 2006.',
               url: 'https://kubusklus.nl',
-              telephone: '+31203642420',
+              telephone: '+31644331191',
               email: 'info@kubusklus.nl',
               foundingDate: '2006',
               priceRange: '$$',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: 'Kapoeasweg 21',
+                streetAddress: 'Overschiestraat 170-A28',
                 addressLocality: 'Amsterdam',
-                postalCode: '1043 AD',
+                postalCode: '1062 XK',
                 addressCountry: 'NL',
               },
               geo: {
