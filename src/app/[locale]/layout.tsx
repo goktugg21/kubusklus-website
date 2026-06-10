@@ -7,6 +7,7 @@ import EmergencyBar from '@/components/layout/EmergencyBar';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import TranslationGuard from '@/components/TranslationGuard';
 import '../globals.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -76,8 +77,9 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${plusJakarta.variable} ${dmSans.variable} h-full antialiased`}>
+    <html lang={locale} translate="no" className={`${plusJakarta.variable} ${dmSans.variable} h-full antialiased`}>
       <head>
+        <meta name="google" content="notranslate" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -129,6 +131,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
+          <TranslationGuard />
           <EmergencyBar />
           <Navbar />
           <main className="flex-1">{children}</main>

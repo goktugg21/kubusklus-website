@@ -129,7 +129,7 @@ function OfferteForm() {
 
   if (status === 'success') {
     return (
-      <>
+      <div className="notranslate" translate="no">
         <section className="bg-[#0F1115] py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl font-heading">
@@ -158,7 +158,7 @@ function OfferteForm() {
             </div>
           </div>
         </section>
-      </>
+      </div>
     );
   }
 
@@ -184,7 +184,7 @@ function OfferteForm() {
       {/* Form */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-[660px] px-4 sm:px-6 lg:px-8">
-          <form ref={formRef} onSubmit={handleSubmit} onChange={clearError} className="space-y-6 rounded-2xl bg-white p-8 shadow-[0_4px_24px_rgb(0_0_0_/_0.06)]">
+          <form ref={formRef} onSubmit={handleSubmit} onChange={clearError} translate="no" className="notranslate space-y-6 rounded-2xl bg-white p-8 shadow-[0_4px_24px_rgb(0_0_0_/_0.06)]">
             {/* Honeypot */}
             <div className="absolute -left-2499.75 h-0 w-0 overflow-hidden" aria-hidden="true">
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
