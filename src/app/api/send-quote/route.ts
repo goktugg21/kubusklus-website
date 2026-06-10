@@ -6,25 +6,42 @@ import { kv } from '@vercel/kv';
 const RATE_LIMIT_WINDOW_SECONDS = 3600;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 
+// Rate limiting is best-effort. KV/Upstash outages or slow fetches must NOT
+// block legitimate quote submissions: if anything goes wrong here we log a
+// warning and fall through to allow the request. A 1.5s timeout guards against
+// KV hangs eating the Vercel function's runtime budget.
+const RATE_LIMIT_KV_TIMEOUT_MS = 1500;
+
 async function checkRateLimit(ip: string): Promise<{ ok: boolean; retryAfter?: number }> {
   if (!ip || ip === 'unknown') return { ok: true };
 
   const key = `ratelimit:quote:${ip}`;
 
-  try {
-    const count = await kv.incr(key);
-    if (count === 1) {
-      await kv.expire(key, RATE_LIMIT_WINDOW_SECONDS);
+  const work: Promise<{ ok: boolean; retryAfter?: number }> = (async () => {
+    try {
+      const count = await kv.incr(key);
+      if (count === 1) {
+        await kv.expire(key, RATE_LIMIT_WINDOW_SECONDS);
+      }
+      if (count > RATE_LIMIT_MAX_REQUESTS) {
+        const ttl = await kv.ttl(key);
+        return { ok: false, retryAfter: Math.max(ttl, 60) };
+      }
+      return { ok: true };
+    } catch (err) {
+      console.warn('Rate limit KV error (allowing request):', err);
+      return { ok: true };
     }
-    if (count > RATE_LIMIT_MAX_REQUESTS) {
-      const ttl = await kv.ttl(key);
-      return { ok: false, retryAfter: Math.max(ttl, 60) };
-    }
-    return { ok: true };
-  } catch (err) {
-    console.error('Rate limit KV error:', err);
-    return { ok: true };
-  }
+  })();
+
+  const timeout: Promise<{ ok: true }> = new Promise((resolve) =>
+    setTimeout(() => {
+      console.warn('Rate limit KV timed out (allowing request)');
+      resolve({ ok: true });
+    }, RATE_LIMIT_KV_TIMEOUT_MS),
+  );
+
+  return Promise.race([work, timeout]);
 }
 
 const ALLOWED_SERVICES = [
@@ -70,7 +87,15 @@ export async function POST(request: Request) {
     const forwarded = hdrs.get('x-forwarded-for');
     const clientIp = forwarded?.split(',')[0]?.trim() || hdrs.get('x-real-ip') || 'unknown';
 
-    const rl = await checkRateLimit(clientIp);
+    // Belt-and-suspenders: if checkRateLimit itself rejects for any reason
+    // (KV import failure, unexpected throw), treat that as "allow" rather than
+    // letting the outer try/catch convert it into a 500.
+    let rl: { ok: boolean; retryAfter?: number } = { ok: true };
+    try {
+      rl = await checkRateLimit(clientIp);
+    } catch (err) {
+      console.warn('Rate limit check threw (allowing request):', err);
+    }
     if (!rl.ok) {
       const nl = body.locale === 'nl';
       return NextResponse.json(
@@ -224,9 +249,13 @@ export async function POST(request: Request) {
       </div>
     `;
 
+    // kubusklus.nl is not yet verified in Resend, so we must send from
+    // onboarding@resend.dev (Resend's always-verified sender). replyTo carries
+    // the submitter's address so the team can hit Reply and answer directly.
+    const ownerEmail = process.env.OWNER_EMAIL || 'info@kubusklus.nl';
     const { error } = await resend.emails.send({
-      from: 'Kubusklus Website <onboarding@resend.dev>',
-      to: 'info@kubusklus.nl',
+      from: 'Kubusklus <onboarding@resend.dev>',
+      to: ownerEmail,
       replyTo: email,
       subject: `Nieuwe Offerte Aanvraag - ${serviceLabel} - ${name}`,
       html: htmlBody,
